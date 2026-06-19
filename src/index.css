@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+
+@theme {
+  --font-days: "Days One", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+}
+
+body {
+  font-family: "Days One", sans-serif;
+}
+
+/* Montserrat for secondary reading texts, inputs, and descriptions */
+p, span, label, input, select, textarea, li, a, td, th {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Days One for headings and buttons */
+h1, h2, h3, h4, h5, h6, button {
+  font-family: "Days One", sans-serif;
+}
+
