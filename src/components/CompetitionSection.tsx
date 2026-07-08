@@ -51,7 +51,7 @@ const CompetitionSection = () => {
   return (
     <div
       id="kategori"
-      className="flex flex-col items-center justify-center relative bg-gradient-to-br from-[#423E40] via-gray-800 to-slate-900 py-10 overflow-hidden"
+      className="flex flex-col items-center justify-center relative bg-neutral-black py-10 overflow-hidden"
     >
       <motion.img
         initial={{ x: 100 }}
@@ -142,7 +142,7 @@ const CompetitionSection = () => {
       {openModal && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
           <div
-            className="bg-white max-w-md w-full p-6 rounded-lg shadow-xl text-gray-800 relative"
+            className="bg-neutral-white max-w-md w-full p-6 rounded-lg shadow-xl text-gray-800 relative"
             style={{
               animation: 'fadeInZoom 0.3s ease-out',
               transformOrigin: 'center',
@@ -162,7 +162,7 @@ const CompetitionSection = () => {
               Panduan Lomba : <br />
               <a
                 href="https://polibatam.id/panduan-lomba-osc-2025"
-                className="text-blue-500 font-normal hover:underline active:underline"
+                className="text-blue-primary font-normal hover:underline active:underline"
               >
                 polibatam.id/panduan-lomba-osc-2025
               </a>

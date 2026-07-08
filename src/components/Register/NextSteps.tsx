@@ -19,7 +19,7 @@ export default function NextSteps({
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="flex items-center justify-center text-white p-1 rounded-sm w-[26px] h-[26px]">
-              <Phone size={16} className="text-[#E55A2B]" />
+              <Phone size={16} className="text-orange-primary" />
             </div>
             <span className="text-white text-sm font-semibold">1. Hubungi PIC Lomba</span>
           </div>
@@ -36,7 +36,7 @@ export default function NextSteps({
           </span>
           <a
             href={`tel:${selectedCompetition.contactNumber}`}
-            className="bg-[#E55A2B] text-white px-4 py-1.5 rounded-lg text-xs font-bold hover:bg-[#d34e20] transition-all"
+            className="bg-orange-primary text-neutral-white px-4 py-1.5 rounded-lg text-xs font-bold hover:bg-orange-dark transition-all"
           >
             Kontak
           </a>
