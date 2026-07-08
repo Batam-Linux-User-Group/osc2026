@@ -14,13 +14,13 @@ export default function RegistrationSummary({
       <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-2">Detail Pendaftaran</h3>
       <div className="text-sm space-y-2">
         <p className="text-gray-300">
-          <span className="text-[#E55A2B] font-medium mr-1.5">Nama:</span> {formData.nama}
+          <span className="text-orange-primary font-medium mr-1.5">Nama:</span> {formData.nama}
         </p>
         <p className="text-gray-300">
-          <span className="text-[#E55A2B] font-medium mr-1.5">Sekolah:</span> {formData.sekolah}
+          <span className="text-orange-primary font-medium mr-1.5">Sekolah:</span> {formData.sekolah}
         </p>
         <p className="text-gray-300">
-          <span className="text-[#E55A2B] font-medium mr-1.5">Lomba:</span>{" "}
+          <span className="text-orange-primary font-medium mr-1.5">Lomba:</span>{" "}
           {selectedCompetition.name}
         </p>
       </div>

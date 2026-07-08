@@ -15,35 +15,35 @@ const TimelineSection = () => {
       date: '28 Juli - 15 Agustus 2025',
       title: 'Pendaftaran',
       icon: <FileText className="w-6 h-6" />,
-      color: 'bg-orange-500',
+      color: 'bg-orange-primary',
       image: pendaftaran,
     },
     {
       date: '13 Agustus 2025',
       title: 'Technical Meeting',
       icon: <Users className="w-6 h-6" />,
-      color: 'bg-orange-500',
+      color: 'bg-orange-primary',
       image: technical_meeting,
     },
     {
       date: '16 Agustus - 17 Agustus 2025',
       title: 'Pelaksanaan Lomba',
       icon: <Calendar className="w-6 h-6" />,
-      color: 'bg-orange-500',
+      color: 'bg-orange-primary',
       image: competition,
     },
     {
       date: '21 Agustus 2025',
       title: 'Pengumuman Juara',
       icon: <Trophy className="w-6 h-6" />,
-      color: 'bg-orange-500',
+      color: 'bg-orange-primary',
       image: juara,
     },
     {
       date: '21 Agustus 2025',
       title: 'Penyerahan Hadiah',
       icon: <Gift className="w-6 h-6" />,
-      color: 'bg-orange-500',
+      color: 'bg-orange-primary',
       image: gift,
     },
   ];
@@ -51,24 +51,24 @@ const TimelineSection = () => {
   return (
     <div
       id="timeline"
-      className="px-4 py-16 bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen"
+      className="px-4 py-16 bg-neutral-black min-h-screen"
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-block">
-            <div className="h-1 w-32 bg-orange-500 rounded-full mx-auto mb-4"></div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-2">
+            <div className="h-1 w-32 bg-orange-primary rounded-full mx-auto mb-4"></div>
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-white mb-2">
               TIMELINE
             </h2>
-            <p className="text-gray-600 text-sm">Jadwal Kegiatan Kompetisi</p>
+            <p className="text-neutral-white/70 text-sm">Jadwal Kegiatan Kompetisi</p>
           </div>
         </div>
 
         {/* Desktop Timeline */}
         <div className="hidden lg:block relative">
           {/* Main Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-orange-500 rounded-full"></div>
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-orange-primary rounded-full"></div>
 
           <div className="space-y-16">
             {timelineData.map((item, index) => (
@@ -141,7 +141,7 @@ const TimelineSection = () => {
         <div className="lg:hidden overflow-x-hidden">
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-orange-500"></div>
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-orange-primary"></div>
 
             <div className="space-y-8">
               {timelineData.map((item, index) => (
@@ -195,16 +195,16 @@ const TimelineSection = () => {
         {/* Bottom Decoration */}
         <div className="mt-16 flex justify-center">
           <div className="flex space-x-2">
-            <div className="w-3 h-3 bg-orange-500 rounded-full animate-pulse"></div>
+            <div className="w-3 h-3 bg-orange-primary rounded-full animate-pulse"></div>
             <div className="w-3 h-3 bg-orange-400 rounded-full animate-pulse delay-75"></div>
-            <div className="w-3 h-3 bg-orange-600 rounded-full animate-pulse delay-150"></div>
+            <div className="w-3 h-3 bg-orange-dark rounded-full animate-pulse delay-150"></div>
           </div>
         </div>
-        <p className="px-4 pt-5 text-sm animate-pulse">
+        <p className="px-4 pt-5 text-sm animate-pulse text-neutral-white">
           Khusus Lomba <b>Mascot Design</b> akan menyesuaikan, silahkan cek pada{' '}
           <a
             href="https://polibatam.id/panduan-lomba-osc-2025"
-            className="text-orange-500 underline"
+            className="text-orange-primary underline"
           >
             panduan
           </a>

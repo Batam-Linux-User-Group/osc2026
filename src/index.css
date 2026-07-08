@@ -2,21 +2,42 @@
 
 
 @theme {
-  --font-days: "Days One", sans-serif;
-  --font-montserrat: "Montserrat", sans-serif;
+  /* --FONTS---------------------------------------------------------- */
+
+  --font-heading: "Days One", sans-serif;
+  --font-body: "Montserrat", sans-serif;
+
+  /* -Color------------------------------------------------------ */
+  --color-orange-primary: #E9672D;
+  --color-orange-dark: #A94D28;
+  --color-blue-primary: #0F4C81;
+  --color-blue-dark: #1E3A5F;
+  --color-neutral-black: #1A1A1A;
+  --color-neutral-gray: #424242;
+  --color-neutral-white: #FFFFFF;
+
+  --color-success: #22C55E;
+  --color-success-dark: #16A34A;
+  --color-error: #EF4444;
+  --color-error-dark: #DC2626;
 }
 
 body {
-  font-family: "Days One", sans-serif;
+  font-family: var(--font-body);
 }
 
-/* Montserrat for secondary reading texts, inputs, and descriptions */
+/* Headings → Days One */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Body texts, inputs, and links → Montserrat */
 p, span, label, input, select, textarea, li, a, td, th {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-body);
 }
 
-/* Days One for headings and buttons */
-h1, h2, h3, h4, h5, h6, button {
-  font-family: "Days One", sans-serif;
+/* Buttons → Days One */
+button {
+  font-family: var(--font-heading);
 }
 

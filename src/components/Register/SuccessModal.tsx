@@ -22,10 +22,10 @@ export default function SuccessModal({
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-[#121111] rounded-2xl max-w-md w-full border border-[#E55A2B]/15 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div className="bg-neutral-black rounded-2xl max-w-md w-full border border-orange-primary/15 shadow-2xl max-h-[90vh] overflow-y-auto">
         {/* Modal Header */}
         <div className="relative p-5 pb-4 text-center border-b border-zinc-800/80">
-          <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors cursor-pointer">
+          <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-neutral-white transition-colors cursor-pointer">
             <X size={20} />
           </button>
  
@@ -35,8 +35,8 @@ export default function SuccessModal({
  
            <h2 className="text-xl font-bold text-white mb-1.5">Pendaftaran Berhasil! 🎉</h2>
           <p className="text-gray-300 text-xs leading-relaxed">
-            Selamat <span className="font-semibold text-[#E55A2B]">{formData.nama}</span>, Anda telah terdaftar untuk
-            lomba <span className="font-semibold text-blue-400">{selectedCompetition.name}</span>
+            Selamat <span className="font-semibold text-orange-primary">{formData.nama}</span>, Anda telah terdaftar untuk
+            lomba <span className="font-semibold text-blue-primary">{selectedCompetition.name}</span>
           </p>
         </div>
  

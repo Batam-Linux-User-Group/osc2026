@@ -97,7 +97,7 @@ const Home = ({ title }: HomePage) => {
   return (
     <div
       id="beranda"
-      className="min-h-screen bg-gradient-to-br from-[#423E40] via-gray-800 to-slate-900 text-white px-5 py-14 md:py-24 relative overflow-hidden"
+      className="min-h-screen bg-neutral-black text-white px-5 py-14 md:py-24 relative overflow-hidden"
       // className="min-h-screen bg-gradient-to-br from-[#423E40] via-[#5b5557] to-[#A89EA3] text-white px-5 py-14 md:py-24 relative overflow-hidden"
     >
       {/* Tech Corner Decorations */}
@@ -109,10 +109,10 @@ const Home = ({ title }: HomePage) => {
       </div>
 
       {/* Orange/Blue Corner Accents */}
-      <div className="absolute top-14 hidden md:block right-6 w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded"></div>
-      <div className="absolute top-16 hidden md:block right-8 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded"></div>
-      <div className="absolute bottom-6 left-6 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded"></div>
-      <div className="absolute bottom-8 left-8 w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded"></div>
+      <div className="absolute top-14 hidden md:block right-6 w-16 h-16 bg-gradient-to-br from-orange-primary to-orange-dark rounded"></div>
+      <div className="absolute top-16 hidden md:block right-8 w-12 h-12 bg-gradient-to-br from-blue-primary to-blue-dark rounded"></div>
+      <div className="absolute bottom-6 left-6 w-12 h-12 bg-gradient-to-br from-blue-primary to-blue-dark rounded"></div>
+      <div className="absolute bottom-8 left-8 w-8 h-8 bg-gradient-to-br from-orange-primary to-orange-dark rounded"></div>
 
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-16 relative z-10 xl:pt-24">
         {/* Left Content */}
@@ -124,7 +124,7 @@ const Home = ({ title }: HomePage) => {
         >
           <div className="space-y-2 md:space-y-6">
             <h1 className="text-3xl lg:text-3xl xl:text-4xl font-bold leading-tight">
-              {title} <span className="text-orange-500">Open Source!</span>
+              {title} <span className="text-orange-primary">Open Source!</span>
             </h1>
             <p className="text-sm lg:text-xl text-slate-300 leading-relaxed max-w-2xl">
               Mulailah persiapanmu dari sekarang. Tantangan open source
@@ -134,7 +134,7 @@ const Home = ({ title }: HomePage) => {
 
           {/* Countdown */}
           {isTimerFinished ? (
-            <p className="text-xl text-orange-500">Event has started!</p>
+            <p className="text-xl text-orange-primary">Event has started!</p>
           ) : (
             <div className="flex gap-4 text-center font-mono">
               {[
@@ -172,7 +172,7 @@ const Home = ({ title }: HomePage) => {
           <div className="pt-4">
             <Link
               to="/daftar"
-              className="bg-transparent border-2 border-blue-500 text-white px-8 py-1 rounded-full text-lg font-semibold hover:bg-blue-500 hover:border-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
+              className="bg-transparent border-2 border-blue-primary text-neutral-white px-8 py-1 rounded-full text-lg font-semibold hover:bg-blue-primary hover:border-blue-primary transition-all duration-300 hover:shadow-lg hover:shadow-blue-primary/25"
               aria-label="Register for the open source challenge"
             >
               Daftar

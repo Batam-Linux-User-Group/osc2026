@@ -50,7 +50,7 @@ export default function FormField({
         className={`w-full px-4 py-3 bg-[#1C1A1A] border rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 transition-all ${
           error
             ? "border-red-500 focus:ring-red-500"
-            : "border-zinc-800 focus:ring-orange-500 focus:border-orange-500"
+            : "border-zinc-800 focus:ring-orange-primary focus:border-orange-primary"
         }`}
         placeholder={placeholder}
       />

@@ -79,7 +79,7 @@ const Navbar = () => {
           </a>
           <Link
             to="/daftar"
-            className="text-sm font-semibold text-orange-50 bg-orange-500 px-4 py-2 rounded-lg shadow-md hover:bg-orange-400 transition-all duration-300"
+            className="text-sm font-semibold text-orange-50 bg-orange-primary px-4 py-2 rounded-lg shadow-md hover:bg-orange-400 transition-all duration-300"
           >
             Daftar
           </Link>
