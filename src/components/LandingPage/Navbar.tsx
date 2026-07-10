@@ -53,25 +53,53 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
-          <Link
-            to="/"
-            className="text-sm font-semibold hover:text-slate-300 transition-all duration-300 relative group px-3 py-2 rounded-lg hover:bg-slate-700/30"
-          >
-            Home
-            <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-slate-400 group-hover:w-full transition-all duration-300 rounded-full"></span>
-            <span className="absolute inset-0 bg-slate-400/0 group-hover:bg-slate-400/10 rounded-lg transition-all duration-300"></span>
-          </Link>
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="text-sm font-semibold hover:text-[#E9672D] transition-all duration-300 px-3 py-2 rounded-lg hover:bg-slate-700/30 flex items-center gap-1"
+            >
+              Beranda
+              <span
+                className={`transition-transform duration-300 ${
+                  menuOpen ? "rotate-180" : ""
+                }`}
+              >
+                ▼
+              </span>
+            </button>
+            {menuOpen && (
+              <div className="absolute center top-full mt-2 w-56 bg-gray-700 text-white rounded-lg shadow-lg z-50 animate-in fade-in">
+                <Link to="/" className="block px-4 py-2 hover:bg-gray-600">
+                  Beranda
+                </Link>
+
+                <Link to="/tentang" className="block px-4 py-2 hover:bg-gray-600">
+                  Tentang
+                </Link>
+
+                <Link to="/kategori" className="block px-4 py-2 hover:bg-gray-600">
+                  Kategori
+                </Link>
+
+                <Link to="/timeline" className="block px-4 py-2 hover:bg-gray-600">
+                  Timeline
+                </Link>
+
+                <Link to="/sejarah" className="block px-4 py-2 hover:bg-gray-600">
+                  Sejarah
+                </Link>
+            </div>
+            )}
           <Link
             to="/leaderboard"
-            className="text-sm font-semibold hover:text-slate-300 transition-all duration-300 relative group px-3 py-2 rounded-lg hover:bg-slate-700/30"
+            className="text-sm font-semibold hover:text-[#E9672D] transition-all duration-300 relative group px-3 py-2 rounded-lg hover:bg-slate-700/30"
           >
-            Leaderboard
+            Peringkat
             <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-slate-400 group-hover:w-full transition-all duration-300 rounded-full"></span>
             <span className="absolute inset-0 bg-slate-400/0 group-hover:bg-slate-400/10 rounded-lg transition-all duration-300"></span>
           </Link>
           <a
             href="https://polibatam.id/panduan-lomba-osc-2025"
-            className="text-sm font-semibold hover:text-slate-300 transition-all duration-300 relative group px-3 py-2 rounded-lg hover:bg-slate-700/30"
+            className="text-sm font-semibold hover:text-[#E9672D] transition-all duration-300 relative group px-3 py-2 rounded-lg hover:bg-slate-700/30"
           >
             Panduan Lomba
             <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-slate-400 group-hover:w-full transition-all duration-300 rounded-full"></span>
