@@ -36,13 +36,13 @@ const datas = [
 
 const Gallery = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-blue-50 py-8">
+    <div className="min-h-screen bg-orange-primary py-8">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">
+          <h1 className="text-4xl font-bold text-neutral-black mb-2">
             Galeri OSC 2024
           </h1>
-          <p className="text-gray-600">
+          <p className="text-neutral-gray">
             Keseruan Lomba Open Source pada tahun 2024
           </p>
         </div>

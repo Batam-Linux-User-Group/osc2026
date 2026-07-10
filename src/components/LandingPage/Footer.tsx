@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <div
       id="kontak"
-      className="bg-[#1A1A1A] text-white px-6 py-12"
+      className="bg-neutral-black text-white px-6 py-12"
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Logo Section */}

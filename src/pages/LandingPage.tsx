@@ -21,7 +21,7 @@ const LandingPage = () => {
       <Footer />
       <Link
         to={'/daftar'}
-        className="group fixed bottom-10 right-5 z-30 bg-orange-500 text-white rounded-full p-3 shadow-lg hover:bg-orange-600 transition-colors cursor-pointer flex items-center gap-2"
+        className="group fixed bottom-10 right-5 z-30 bg-orange-primary text-neutral-white rounded-full p-3 shadow-lg hover:bg-orange-dark transition-colors cursor-pointer flex items-center gap-2"
       >
         <File size={30} />
         <p className="hidden group-hover:block transition-all duration-300">
