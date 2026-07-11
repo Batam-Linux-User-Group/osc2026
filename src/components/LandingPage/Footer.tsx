@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-import { logo } from '../../assets';
+import {logoGold} from '../../assets';
 import BLUG from '../../assets/blug.svg';
 import { HashLink } from 'react-router-hash-link';
 import { Phone, MapPin, Instagram, Mail } from 'lucide-react';
@@ -9,7 +8,7 @@ const Footer = () => {
     { key: 'tentang-lomba', label: 'Tentang' },
     { key: 'kategori', label: 'Kategori' },
     { key: 'timeline', label: 'Timeline' },
-    { key: 'kontak', label: 'Sejarah' },
+    { key: 'sejarah', label: 'Sejarah' },
   ];
   return (
     <div
@@ -20,14 +19,16 @@ const Footer = () => {
         {/* Logo Section */}
         <div className="flex flex-col items-center lg:items-start">
           <div className="flex space-x-6 mb-4">
-            <img src={logo} alt="Logo 1" className="h-10" />
+            <img src={logoGold} alt="Logo 1" className="h-10" />
             <img src={BLUG} alt="Logo 2" className="h-10" />
           </div>
           <p className="text-sm text-gray-300 text-center md:text-left">
             Batam Linux User Group
           </p>
           <p className="text-sm text-gray-300 text-center md:text-left">
-            Jl Ahmad Yani Politeknik Negeri Batam, Batam, Riau, Indonesia 29431
+            Jl Ahmad Yani Politeknik Negeri Batam, Batam, 
+            <br />
+            Riau, Indonesia 29431
           </p>
         </div>
 
@@ -40,13 +41,7 @@ const Footer = () => {
                 <span className="mr-2">
                   <Phone size={15} />
                 </span>
-                <span>082388304818 - Aurel</span>
-              </li>
-              <li className="flex items-center">
-                <span className="mr-2">
-                  <Phone size={15} />
-                </span>
-                <span>087851618604 - Kayla</span>
+                <span>088742634948 - Atina Azahra</span>
               </li>
               <li className="flex items-center">
                 <span className="mr-2">
@@ -80,11 +75,6 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="mt-8 pt-8 border-t border-gray-600 text-center text-sm text-gray-300">
-        Open Source Competition 2026. Batam Linux User Group.
       </div>
     </div>
   );

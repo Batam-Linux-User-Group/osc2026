@@ -36,7 +36,9 @@ const datas = [
 
 const Gallery = () => {
   return (
-    <div className="min-h-screen bg-orange-primary py-8">
+    <div 
+     id= "sejarah" 
+     className="min-h-screen bg-orange-primary py-8">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-neutral-black mb-2">
