@@ -1,7 +1,7 @@
 import {logoGold} from '../../assets';
 import BLUG from '../../assets/blug.svg';
 import { HashLink } from 'react-router-hash-link';
-import { Phone, MapPin, Instagram, Mail } from 'lucide-react';
+import { Phone, Instagram, Mail } from 'lucide-react';
 const Footer = () => {
   const menuItems = [
     { key: 'beranda', label: 'Beranda' },
