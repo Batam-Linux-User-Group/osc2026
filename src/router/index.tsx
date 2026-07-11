@@ -4,6 +4,7 @@ import LandingPage from '../pages/LandingPage';
 import LeaderboardPage from '../pages/LeaderboardPage';
 import NotFoundPage from '../pages/NotFoundPage';
 
+
 const router = createBrowserRouter(
   [
     {
