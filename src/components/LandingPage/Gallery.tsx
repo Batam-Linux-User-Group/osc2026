@@ -1,19 +1,21 @@
-import { satu, dua } from '../../assets/LandingPage/gallery';
+import { galleryOsc2024, galleryOsc2025, logoOsc2024, logoOsc2025 } from '../../assets/LandingPage/gallery';
 
 const galleryData = [
   {
     id: '2024',
-    src: satu,
+    src: galleryOsc2024,
     alt: 'OSC 2024',
     year: '2024',
     isComingSoon: false,
+    logo: logoOsc2024,
   },
   {
     id: '2025',
-    src: dua,
+    src: galleryOsc2025,
     alt: 'OSC 2025',
     year: '2025',
     isComingSoon: false,
+    logo: logoOsc2025,
   },
   {
     id: '2026',
@@ -21,6 +23,7 @@ const galleryData = [
     alt: 'OSC 2026',
     year: '2026',
     isComingSoon: true,
+    logo: logoOsc2025, // placeholder, will show "?" style
   },
 ];
 
@@ -48,39 +51,56 @@ const Gallery = () => {
           {galleryData.map((item) => (
             <div
               key={item.id}
-              className="relative group overflow-hidden rounded-xl aspect-[4/3] bg-neutral-black cursor-pointer"
+              className={`group rounded-xl overflow-hidden bg-neutral-black cursor-pointer shadow-lg ${
+                item.isComingSoon
+                  ? 'sm:col-span-2 sm:w-1/2 sm:mx-auto lg:col-span-1 lg:w-full lg:mx-0'
+                  : ''
+              }`}
             >
               {item.isComingSoon ? (
                 // Coming Soon Card
-                <div className="w-full h-full flex items-center justify-center bg-neutral-black">
+                <div className="relative w-full aspect-[4/3] flex items-center justify-center bg-neutral-gray-light">
+                  {/* Question Mark Badge */}
+                  <div className="absolute top-3 left-3 md:top-4 md:left-4 bg-neutral-white rounded-xl p-2 md:p-2.5 shadow-lg">
+                    <span className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-neutral-black text-xl md:text-2xl font-black">
+                      ?
+                    </span>
+                  </div>
                   <div className="text-center">
-                    <span className="text-5xl md:text-6xl text-neutral-white/80 font-bold">
+                    <span className="text-8xl md:text-9xl text-neutral-black font-black">
                       ?
                     </span>
                   </div>
                 </div>
               ) : (
-                // Photo Card
-                <>
+                // Photo — occupies top portion
+                <div className="relative overflow-hidden">
                   <img
                     src={item.src}
                     alt={item.alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  {/* Dark overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                </>
+                  {/* Logo Badge */}
+                  <div className="absolute top-3 left-3 md:top-4 md:left-4 bg-neutral-white rounded-xl p-2 md:p-2.5 shadow-lg">
+                    <img
+                      src={item.logo}
+                      alt={`Logo OSC ${item.year}`}
+                      className="w-8 h-8 md:w-10 md:h-10 object-contain"
+                    />
+                  </div>
+                </div>
               )}
 
-              {/* Year Label */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
+              {/* Year Label — black bar at bottom */}
+              <div className="bg-neutral-black px-4 py-3 md:px-5 md:py-4">
                 <div className="flex items-center gap-2">
-                  <span className="text-2xl md:text-3xl font-bold text-neutral-white tracking-wide">
+                  <span className="text-xl md:text-2xl font-bold text-neutral-white tracking-wide font-heading">
                     OSC {item.year}
                   </span>
-                  <span className="text-yellow-400 text-2xl md:text-3xl font-bold">
-                    |
-                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="block w-0.5 h-5 md:h-6 bg-yellow-400" />
+                    <span className="block w-1 h-5 md:h-6 bg-neutral-white" />
+                  </div>
                 </div>
               </div>
             </div>
