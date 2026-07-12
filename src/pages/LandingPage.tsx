@@ -7,6 +7,7 @@ import Footer from '../components/LandingPage/Footer';
 import { Link } from 'react-router-dom';
 import { File } from 'lucide-react';
 import Gallery from '../components/LandingPage/Gallery';
+import ChampionSection from '../components/LandingPage/ChampionSection';
 
 const LandingPage = () => {
   return (
@@ -18,6 +19,7 @@ const LandingPage = () => {
       <CompetitionSection />
       <TimelineSection />
       <Gallery />
+      <ChampionSection />
       <Footer />
       <Link
         to={'/daftar'}
