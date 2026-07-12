@@ -13,8 +13,8 @@ const LandingPage = () => {
   return (
     <div>
       <Navbar />
-      <Home title="Bangun Masa Depan Bersama, Mulai dari " />
-      <About tema="Open Source Arena: Battle of Brilliant Minds" />
+      <Home />
+      <About />
 
       <CompetitionSection />
       <TimelineSection />
