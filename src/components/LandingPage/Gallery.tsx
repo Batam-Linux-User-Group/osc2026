@@ -26,7 +26,10 @@ const galleryData = [
 
 const Gallery = () => {
   return (
-    <section className="bg-orange-primary py-12 md:py-20">
+    <section 
+      id="sejarah" 
+      className="bg-orange-primary py-12 md:py-20"
+    >
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="text-center mb-10 md:mb-14">
