@@ -63,54 +63,22 @@ const FormRegister: React.FC = () => {
       setErrors(newErrors);
       return;
     }
-    const form = document.getElementById("formRegister");
-    if (!form || !(form instanceof HTMLFormElement)) {
-      setIsSubmitting(false);
-      setErrors({ ...newErrors, form: "Form not found or invalid." });
-      return;
-    }
 
     setIsSubmitting(true);
 
-    // Simulate API call
-    try {
-      const formData = new FormData(form);
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
-      const nama = form.nama.value.trim();
-      // Ambil data dari form
-      function formatNomorHP(input: string) {
-        let nomor = input.replace(/\D/g, "");
-        if (nomor.startsWith("08")) {
-          nomor = "62" + nomor.slice(1);
-        } else if (nomor.startsWith("8")) {
-          nomor = "62" + nomor;
-        }
-        return nomor;
-      }
-      const lomba = form.lomba.value.trim();
-      formData.delete("telepon");
-      formData.append("telepon", formatNomorHP(form.telepon.value.trim()));
-      await axios.post(
-        import.meta.env.VITE_GOOGLE_SCRIPT_URL,
-        formData,
-      );
-      // Kirim pesan ke bot WhatsApp
-      try {
-        await axios.post(
-          import.meta.env.VITE_WEBHOOK_WA_URL,
-          {
-            to: formatNomorHP(form.telepon.value.trim()),
-            message: `Halo ${nama}!\n\nTerima kasih sudah mendaftar di lomba *${selectedCompetition?.name || lomba}* 🎉\n\nPendaftaranmu akan segera kami proses 💼\nPastikan semua data dan berkas yang kamu kirimkan sudah lengkap dan sesuai, ya!\n\nUntuk info selanjutnya dan koordinasi lomba, yuk gabung ke grup WhatsApp resmi lewat link berikut:\n${selectedCompetition?.whatsapp}\n\nKami tunggu semangat dan aksi terbaikmu di ajang ini! 💪🔥\n\n💡 Go Open Source, Be the Change! 🚀`,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          },
-        );
-      } catch (error) {
-        console.error("Gagal kirim pesan ke bot WA:", error);
-      }
+    try {
+      await axios.post(`${API_URL}/api/register`, {
+        nama: formData.nama.trim(),
+        email: formData.email.trim(),
+        sekolah: formData.sekolah.trim(),
+        kartupelajar: formData.kartupelajar.trim(),
+        telepon: formData.telepon.trim(),
+        lomba: formData.lomba,
+        lomba_name: selectedCompetition?.name || formData.lomba,
+        whatsapp_group: selectedCompetition?.whatsapp || "",
+      });
 
       setShowSuccessModal(true);
       document.body.style.overflow = "hidden";
