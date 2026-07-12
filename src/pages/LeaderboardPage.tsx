@@ -1,212 +1,99 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import Footer from '../components/LandingPage/Footer';
 import Navbar from '../components/LandingPage/Navbar';
 import Leaderboard from '../components/LeaderBoard/LeaderBoard';
 
-const sampleData = [
-  {
-    id: 'web-design',
-    title: '💻 Web Design',
-    color: '#6366f1',
-    participants: [
-      {
-        id: '1',
-        name: 'Rajiv Tajusa David',
-        school: 'SMKN 1 Batam',
-        score: 192,
-      },
-      {
-        id: '2',
-        name: 'Zacky Julyanda Pratama',
-        school: 'SMKN 1 Batam',
-        score: 190,
-      },
-      {
-        id: '3',
-        name: 'Alfredo Alexander Mendez',
-        school: 'SMKN 7 Batam',
-        score: 185,
-      },
-      {
-        id: '4',
-        name: 'Tambah Riski Martinus',
-        school: 'SMKN 5 Batam',
-        score: 182,
-      },
-      { id: '5', name: 'Roihan Abiyan', school: 'SMKN 5 Batam', score: 112 },
-      {
-        id: '6',
-        name: 'Muhammad Bayu Adhiyoso Mumu',
-        school: 'SMKN 5 Batam',
-        score: 88,
-      },
-      {
-        id: '7',
-        name: 'Irvani Heldy Fauzan',
-        school: 'SMK Multistudi High School',
-        score: 56,
-      },
-      {
-        id: '8',
-        name: 'Timothy William',
-        school: 'SMK Multistudi High School',
-        score: 30,
-      },
-    ],
-  },
-  {
-    id: 'sysadmin',
-    title: '🧑‍💻 Linux System Admin',
-    color: '#ec4899',
-    participants: [
-      {
-        id: '9',
-        name: 'Septian Ramadhani',
-        school: 'SMKN 1 Batam',
-        score: 154.5,
-      },
-      {
-        id: '10',
-        name: 'Muhammad Yanur Fillah',
-        school: 'SMKN 1 Batam',
-        score: 148.5,
-      },
-      {
-        id: '11',
-        name: 'Muhammad Bimo Syaipuddin',
-        school: 'SMKN 7 Batam',
-        score: 102,
-      },
-      {
-        id: '12',
-        name: 'Muhammad Fathurrahman',
-        school: 'SMKN 1 Batam',
-        score: 78,
-      },
-      { id: '13', name: 'Brian Deswar', school: 'SMKN 5 Batam', score: 54 },
-      {
-        id: '14',
-        name: 'Enno Nurwansyah Rasyidi',
-        school: 'SMKN 7 Batam',
-        score: 24,
-      },
-      { id: '15', name: 'Fauzan Ansori', school: 'SMKN 7 Batam', score: 0 },
-    ],
-  },
-  {
-    id: 'netsim',
-    title: '🛜 Network Simulation',
-    color: '#10b981',
-    participants: [
-      {
-        id: '16',
-        name: 'Efraim Tobias Santoso',
-        school: 'SMKN 7 Batam',
-        score: 68,
-      },
-      { id: '17', name: 'Calvin Ardyanto', school: 'SMKN 7 Batam', score: 62 },
-      { id: '18', name: 'Yusuf Abdulloh', school: 'SMKN 1 Batam', score: 61 },
-      {
-        id: '19',
-        name: 'Muhamad Daffa Nugraha',
-        school: 'SMK Multistudi High School',
-        score: 57,
-      },
-      {
-        id: '20',
-        name: 'Fakhira Shakila Nasution',
-        school: 'SMKN 1 Batam',
-        score: 56,
-      },
-      { id: '21', name: 'Abdillah Hidayat', school: 'SMKN 7 Batam', score: 53 },
-      {
-        id: '22',
-        name: 'Nosa Pratama Purba',
-        school: 'SMKN 7 Batam',
-        score: 52,
-      },
-      {
-        id: '23',
-        name: 'Reviana Dwi Anjani',
-        school: 'SMKN 1 Batam',
-        score: 37,
-      },
-      {
-        id: '24',
-        name: 'Kevin Li',
-        school: 'SMK Multistudi High School',
-        score: 33,
-      },
-      {
-        id: '25',
-        name: 'PAULINA NINA FLORENZA',
-        school: 'SMKN 5 Batam',
-        score: 29,
-      },
-      {
-        id: '26',
-        name: 'Wahyu Riandra Tri Saputra',
-        school: 'SMK Multistudi High School',
-        score: 24,
-      },
-    ],
-  },
-  {
-    id: 'mascot',
-    title: '🎨 Mascot Design',
-    color: '#f59e0b',
-    participants: [
-      {
-        id: '27',
-        name: 'Jatra Riski Darmawan',
-        school: 'SMKN 1 Batam',
-        score: 0,
-      },
-      { id: '28', name: 'Revaldo Sitorus', school: 'SMKN 1 Batam', score: 0 },
-      {
-        id: '29',
-        name: 'Ibnu Hanif Salsabila',
-        school: 'UMUM',
-        score: 0,
-      },
-      {
-        id: '30',
-        name: 'Rizki Syailendra Yopa',
-        school: 'SMKN 7 Batam',
-        score: 0,
-      },
-      {
-        id: '31',
-        name: 'Oktavia Fitri Nurmawati',
-        school: 'SMKN 1 Batam',
-        score: 0,
-      },
-      {
-        id: '32',
-        name: 'Virdodhita Virginia Sirait',
-        school: 'SMKN 1 Batam',
-        score: 0,
-      },
-      {
-        id: '33',
-        name: 'Caylani Zuleika Putri',
-        school: 'SMKN 1 Batam',
-        score: 0,
-      },
-      {
-        id: '34',
-        name: 'Aisah Rizki Wahyuni',
-        school: 'SMKN 5 Batam',
-        score: 0,
-      },
-    ],
-  },
-];
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
+const COLORS = ['#6366f1', '#ec4899', '#10b981', '#f59e0b', '#8b5cf6', '#ef4444', '#14b8a6', '#f97316'];
+
+interface ApiPeserta {
+  id: number;
+  nama_lengkap: string;
+  asal_sekolah: string | null;
+  nilai: number;
+}
+
+interface ApiLeaderboard {
+  id: number;
+  kategori_lomba: string;
+  peserta: ApiPeserta[];
+}
+
+interface CompetitionData {
+  id: string;
+  title: string;
+  color: string;
+  participants: {
+    id: string;
+    name: string;
+    school: string;
+    score: number;
+  }[];
+}
 
 export default function LeaderboardPage() {
+  const [competitions, setCompetitions] = useState<CompetitionData[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const fetchLeaderboard = async () => {
+      try {
+        const res = await axios.get<ApiLeaderboard[]>(`${API_URL}/api/peserta/leaderboard`);
+
+        const mapped: CompetitionData[] = res.data.map((lomba, index) => ({
+          id: lomba.id.toString(),
+          title: lomba.kategori_lomba,
+          color: COLORS[index % COLORS.length],
+          participants: lomba.peserta.map((p) => ({
+            id: p.id.toString(),
+            name: p.nama_lengkap,
+            school: p.asal_sekolah || '-',
+            score: p.nilai,
+          })),
+        }));
+
+        setCompetitions(mapped);
+      } catch {
+        setError('Gagal memuat data leaderboard');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchLeaderboard();
+  }, []);
+
+  if (loading) {
+    return (
+      <div>
+        <Navbar />
+        <div className="min-h-screen bg-gradient-to-br from-[#423E40] via-gray-800 to-slate-900 flex items-center justify-center">
+          <div className="text-white text-lg animate-pulse">Memuat leaderboard...</div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div>
+        <Navbar />
+        <div className="min-h-screen bg-gradient-to-br from-[#423E40] via-gray-800 to-slate-900 flex items-center justify-center">
+          <div className="text-red-400 text-lg">{error}</div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div>
       <Navbar />
-      <Leaderboard competitions={sampleData} />
+      <Leaderboard competitions={competitions} />
       <Footer />
     </div>
   );
