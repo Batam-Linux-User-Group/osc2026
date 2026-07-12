@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <section id="tentang-lomba" className="relative my-20 px-6 text-center max-w-4xl mx-auto">
+    <section id="tentang-lomba" className="relative my-20 px-6 py-12 text-center max-w-4xl mx-auto bg-white">
       {/* Judul */}
       <div className="relative flex justify-center items-center mb-6">
         <h3 
