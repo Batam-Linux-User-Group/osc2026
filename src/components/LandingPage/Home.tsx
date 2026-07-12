@@ -1,214 +1,119 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { arrowbottom, linekanan, linekiri, Maskot } from '../../assets';
 import { motion } from 'motion/react';
+import { Maskot, Gedung } from '../../assets';
+import dotPanelBg from '../../assets/LandingPage/dot-panel-bg.png';
+import dotPattern from '../../assets/LandingPage/dot-pattern.png';
+import decorTopLeft from '../../assets/LandingPage/decor-topleft.png';
+import decorGlow from '../../assets/LandingPage/decor-glow.png';
 
-interface HomePage {
-  title: string;
-}
-
-interface TimeLeft {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-}
-
-// const CornerDecoration = ({ isTopLeft }: { isTopLeft: boolean }) => (
-//   <svg
-//     className="w-80 h-20"
-//     viewBox="0 0 320 80"
-//     fill="none"
-//     aria-hidden="true"
-//   >
-//     {isTopLeft ? (
-//       <>
-//         <path
-//           d="M0 0H200L220 20H320"
-//           stroke="white"
-//           strokeWidth="2"
-//           fill="none"
-//         />
-//         <path d="M0 0V60L20 80" stroke="white" strokeWidth="2" fill="none" />
-//         {[240, 250, 260, 270].map((x) => (
-//           <rect key={x} x={x} y="15" width="4" height="4" fill="white" />
-//         ))}
-//       </>
-//     ) : (
-//       <>
-//         <path
-//           d="M320 80H120L100 60H0"
-//           stroke="white"
-//           strokeWidth="2"
-//           fill="none"
-//         />
-//         <path d="M320 80V20L300 0" stroke="white" strokeWidth="2" fill="none" />
-//         {[40, 52, 64].map((x) => (
-//           <rect key={x} x={x} y="61" width="6" height="6" fill="white" />
-//         ))}
-//       </>
-//     )}
-//   </svg>
-// );
-
-const calculateTimeLeft = (deadline: Date): TimeLeft => {
-  const now = new Date();
-  const diff = deadline.getTime() - now.getTime();
-
-  if (diff <= 0) {
-    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-  }
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
-
-  return { days, hours, minutes, seconds };
-};
-
-const Home = ({ title }: HomePage) => {
-  // DEADLINE
-  const deadline = new Date('2025-08-16T00:00:00');
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(
-    calculateTimeLeft(deadline)
-  );
-  const [isTimerFinished, setIsTimerFinished] = useState<boolean>(false);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const updatedTimeLeft = calculateTimeLeft(deadline);
-      setTimeLeft(updatedTimeLeft);
-
-      if (
-        updatedTimeLeft.days === 0 &&
-        updatedTimeLeft.hours === 0 &&
-        updatedTimeLeft.minutes === 0 &&
-        updatedTimeLeft.seconds === 0
-      ) {
-        setIsTimerFinished(true);
-        clearInterval(timer);
-      }
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [deadline]);
-
+const Home = () => {
   return (
-    <div
+    <section
       id="beranda"
-      className="min-h-screen bg-neutral-black text-white px-5 py-14 md:py-24 relative overflow-hidden"
-      // className="min-h-screen bg-gradient-to-br from-[#423E40] via-[#5b5557] to-[#A89EA3] text-white px-5 py-14 md:py-24 relative overflow-hidden"
+      className="relative min-h-screen overflow-hidden bg-neutral-black px-5 pb-32 pt-14 text-white md:py-24"
     >
-      {/* Tech Corner Decorations */}
-      <div className="absolute hidden md:block top-12 left-0 p-6">
-        <img src={linekiri} alt="" />
-      </div>
-      <div className="absolute hidden md:block bottom-0 right-0 p-6">
-        <img src={linekanan} alt="" />
-      </div>
-
-      {/* Orange/Blue Corner Accents */}
-      <div className="absolute top-14 hidden md:block right-6 w-16 h-16 bg-gradient-to-br from-orange-primary to-orange-dark rounded"></div>
-      <div className="absolute top-16 hidden md:block right-8 w-12 h-12 bg-gradient-to-br from-blue-primary to-blue-dark rounded"></div>
-      <div className="absolute bottom-6 left-6 w-12 h-12 bg-gradient-to-br from-blue-primary to-blue-dark rounded"></div>
-      <div className="absolute bottom-8 left-8 w-8 h-8 bg-gradient-to-br from-orange-primary to-orange-dark rounded"></div>
-
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-16 relative z-10 xl:pt-24">
-        {/* Left Content */}
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-between gap-16 lg:flex-row xl:pt-16">
+        {/* ---------- Left content ---------- */}
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 2 }}
-          className="lg:w-1/2 space-y-2 flex flex-col justify-center pt-10 md:ps-10"
+          transition={{ duration: 1 }}
+          className="relative w-full lg:w-1/2"
         >
-          <div className="space-y-2 md:space-y-6">
-            <h1 className="text-3xl lg:text-3xl xl:text-4xl font-bold leading-tight">
-              {title} <span className="text-orange-primary">Open Source!</span>
+          <img
+            src={decorTopLeft}
+            alt=""
+            aria-hidden="true"
+            className="absolute -left-6 -top-9 hidden h-[75px] w-[170px] rounded-2xl object-cover opacity-60 sm:block"
+          />
+
+          <div className="relative rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/0 px-7 py-9 shadow-2xl shadow-black/40 sm:px-10 sm:py-10">
+            <h1 className="border-l-4 border-blue-primary pl-5 text-4xl font-extrabold leading-[1.05] lg:text-5xl xl:text-6xl">
+              <span className="block text-white">OPEN SOURCE</span>
+              <span className="block pb-1 text-orange-primary">
+                COMPE
+                <span style={{ filter: 'blur(1px)' }}>TITION</span>
+              </span>
             </h1>
-            <p className="text-sm lg:text-xl text-slate-300 leading-relaxed max-w-2xl">
-              Mulailah persiapanmu dari sekarang. Tantangan open source
-              menantimu!
+
+            <p className="mt-4 max-w-md pl-6 text-sm leading-relaxed text-slate-300 lg:text-base">
+              <strong className="font-semibold text-white">
+                Wujudkan Potensimu Lewat Open Source!
+              </strong>
+              <br />
+              Mulai dari sekarang untuk menghadapi tantangan dunia modern.
             </p>
-          </div>
 
-          {/* Countdown */}
-          {isTimerFinished ? (
-            <p className="text-xl text-orange-primary">Event has started!</p>
-          ) : (
-            <div className="flex gap-4 text-center font-mono">
-              {[
-                {
-                  value: timeLeft.days.toString().padStart(2, '0'),
-                  label: 'days',
-                },
-                {
-                  value: timeLeft.hours.toString().padStart(2, '0'),
-                  label: 'hours',
-                },
-                {
-                  value: timeLeft.minutes.toString().padStart(2, '0'),
-                  label: 'minutes',
-                },
-                {
-                  value: timeLeft.seconds.toString().padStart(2, '0'),
-                  label: 'seconds',
-                },
-              ].map((item, index) => (
-                <div key={item.label} className="flex flex-col">
-                  <div className="text-4xl lg:text-5xl font-bold text-white mb-1">
-                    {item.value}
-                  </div>
-                  <div className="text-sm lg:text-base text-slate-400 uppercase tracking-wide">
-                    {item.label}
-                  </div>
-                  <p className="hidden">{index}</p>
-                </div>
-              ))}
+            <div className="mt-7 pl-6">
+              <Link
+                to="/daftar"
+                className="inline-block rounded-full bg-gradient-to-br from-orange-primary to-orange-dark px-8 py-3 text-sm font-bold text-neutral-black shadow-lg shadow-orange-primary/30 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-orange-primary/40"
+                aria-label="Daftar Open Source Competition"
+              >
+                Daftar Sekarang!
+              </Link>
             </div>
-          )}
-
-          {/* CTA Button */}
-          <div className="pt-4">
-            <Link
-              to="/daftar"
-              className="bg-transparent border-2 border-blue-primary text-neutral-white px-8 py-1 rounded-full text-lg font-semibold hover:bg-blue-primary hover:border-blue-primary transition-all duration-300 hover:shadow-lg hover:shadow-blue-primary/25"
-              aria-label="Register for the open source challenge"
-            >
-              Daftar
-            </Link>
           </div>
         </motion.div>
 
-        {/* Right Content - Robot Mascot */}
+        {/* ---------- Right illustration ---------- */}
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 2 }}
-          className="lg:w-1/2 flex justify-center relative"
+          transition={{ duration: 1 }}
+          className="flex w-full justify-center pb-10 pl-10 lg:w-1/2 lg:justify-end"
         >
-          <img
-            src={Maskot}
-            alt="maskot"
-            className="max-w-full h-auto"
-            loading="lazy"
-          />
+          <div className="relative w-[72%] max-w-sm">
+            <img
+              src={decorGlow}
+              alt=""
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-2 -top-1 z-30 h-48 w-56 rounded-[24px] object-cover opacity-90"
+            />
+
+            <div className="absolute bottom-10 right-full z-20 mr-36 hidden h-20 w-48 overflow-hidden rounded-2xl shadow-md sm:block">
+              <img
+                src={dotPanelBg}
+                alt=""
+                aria-hidden="true"
+                className="h-full w-full object-cover"
+              />
+              <img
+                src={dotPattern}
+                alt=""
+                aria-hidden="true"
+                className="absolute right-3 top-1/2 h-[60%] w-[55%] -translate-y-1/2 object-contain"
+              />
+            </div>
+
+            <div className="relative z-10 aspect-[588/861] w-full overflow-hidden rounded-[28px] shadow-2xl shadow-orange-primary/40 ring-2 ring-orange-primary/40">
+              <img
+                src={Gedung}
+                alt="Gedung kampus penyelenggara OSC"
+                className="h-full w-full object-cover brightness-90 saturate-[1.1]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-neutral-black/70 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-b from-neutral-black/50 via-transparent to-transparent" />
+              <div className="absolute inset-0 rounded-[28px] ring-1 ring-inset ring-orange-primary/30" />
+            </div>
+
+            <img
+              src={Maskot}
+              alt="Maskot OSC"
+              loading="lazy"
+              className="pointer-events-none absolute -bottom-3 -left-42 z-20 w-[85%] drop-shadow-[0_20px_25px_rgba(0,0,0,0.5)] sm:w-[95%]"
+            />
+          </div>
         </motion.div>
       </div>
 
-      {/* Bottom Arrow Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <img
-          src={arrowbottom}
-          alt="segitiga"
-          className="animate-bounce w-8 h-auto cursor-pointer"
-          onClick={() => {
-            const section = document.getElementById('tentang-lomba');
-            section?.scrollIntoView({ behavior: 'smooth' });
-          }}
-        />
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-20 bg-neutral-white"
+      >
+        <div className="absolute left-1/2 top-[-32px] h-16 w-3/4 -translate-x-1/2 rounded-full bg-black/25 blur-2xl" />
       </div>
-    </div>
+    </section>
   );
 };
 

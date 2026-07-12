@@ -6,6 +6,8 @@ import logo from './LOGO.png';
 import linekiri from './LandingPage/linetoplefthome.png';
 import linekanan from './LandingPage/linetoprighthome.png';
 import arrowbottom from './LandingPage/arrow.png';
+import Gedung from './LandingPage/gedung.png';
+
 
 export {
   Maskot,
@@ -16,4 +18,5 @@ export {
   linekiri,
   linekanan,
   arrowbottom,
+  Gedung,
 };
