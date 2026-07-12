@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Maskot, Gedung } from '../../assets';
+import { Maskot } from '../../assets';
 import dotPanelBg from '../../assets/LandingPage/dot-panel-bg.png';
 import dotPattern from '../../assets/LandingPage/dot-pattern.png';
 import decorTopLeft from '../../assets/LandingPage/decor-topleft.png';
-import decorGlow from '../../assets/LandingPage/decor-glow.png';
+import backgroundBuilding from '../../assets/LandingPage/background-building.png';
 
 const Home = () => {
   return (
@@ -12,31 +12,32 @@ const Home = () => {
       id="beranda"
       className="relative min-h-screen overflow-hidden bg-neutral-black px-5 pb-32 pt-14 text-white md:py-24"
     >
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-between gap-16 lg:flex-row xl:pt-16">
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-between gap-16 overflow-visible lg:flex-row xl:pt-16">
         {/* ---------- Left content ---------- */}
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
-          className="relative w-full lg:w-1/2"
+          className="relative w-full order-2 lg:order-1 lg:w-[55%]"
         >
           <img
             src={decorTopLeft}
             alt=""
             aria-hidden="true"
-            className="absolute -left-6 -top-9 hidden h-[75px] w-[170px] rounded-2xl object-cover opacity-60 sm:block"
+            className="absolute -left-8 -top-10 z-0 hidden h-[90px] w-[200px] object-cover opacity-80 sm:block"
+            style={{ borderRadius: '0 24px 0 24px' }}
           />
 
-          <div className="relative rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/0 px-7 py-9 shadow-2xl shadow-black/40 sm:px-10 sm:py-10">
-            <h1 className="border-l-4 border-blue-primary pl-5 text-4xl font-extrabold leading-[1.05] lg:text-5xl xl:text-6xl">
+          <div className="relative border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/0 px-5 pt-6 pb-10 shadow-2xl shadow-black/40 sm:px-10 sm:pt-10 sm:pb-14" style={{ borderRadius: '0 57px 0 57px' }}>
+            <h1 className="border-l-4 border-blue-primary pl-4 text-[1.75rem] font-bold leading-[1.05] tracking-wide sm:pl-6 sm:text-3xl md:text-4xl lg:text-5xl">
               <span className="block text-white">OPEN SOURCE</span>
               <span className="block pb-1 text-orange-primary">
                 COMPE
-                <span style={{ filter: 'blur(1px)' }}>TITION</span>
+                <span className="opacity-70">TITION</span>
               </span>
             </h1>
 
-            <p className="mt-4 max-w-md pl-6 text-sm leading-relaxed text-slate-300 lg:text-base">
+            <p className="mt-3 max-w-lg pl-4 text-xs leading-relaxed text-slate-300 sm:mt-4 sm:pl-6 sm:text-sm lg:text-base">
               <strong className="font-semibold text-white">
                 Wujudkan Potensimu Lewat Open Source!
               </strong>
@@ -44,10 +45,11 @@ const Home = () => {
               Mulai dari sekarang untuk menghadapi tantangan dunia modern.
             </p>
 
-            <div className="mt-7 pl-6">
+            <div className="mt-5 pl-4 sm:mt-7 sm:pl-6">
               <Link
                 to="/daftar"
-                className="inline-block rounded-full bg-gradient-to-br from-orange-primary to-orange-dark px-8 py-3 text-sm font-bold text-neutral-black shadow-lg shadow-orange-primary/30 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-orange-primary/40"
+                className="inline-block bg-orange-primary px-6 py-2.5 text-sm font-bold text-neutral-black shadow-lg  outline-offset-1 outline-orange-primary transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-orange-primary/40"
+                style={{ borderRadius: '38px 12px 38px 12px' }}
                 aria-label="Daftar Open Source Competition"
               >
                 Daftar Sekarang!
@@ -61,17 +63,10 @@ const Home = () => {
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
-          className="flex w-full justify-center pb-10 pl-10 lg:w-1/2 lg:justify-end"
+          className="flex w-full order-1 lg:order-2 justify-center pb-10 pt-4 lg:pl-10 lg:w-1/2 lg:justify-end"
         >
-          <div className="relative w-[72%] max-w-sm">
-            <img
-              src={decorGlow}
-              alt=""
-              aria-hidden="true"
-              className="pointer-events-none absolute -right-2 -top-1 z-30 h-48 w-56 rounded-[24px] object-cover opacity-90"
-            />
-
-            <div className="absolute bottom-10 right-full z-20 mr-36 hidden h-20 w-48 overflow-hidden rounded-2xl shadow-md sm:block">
+          <div className="relative w-[80%] max-w-sm sm:w-[72%]">
+            <div className="absolute bottom-10 right-full z-20 mr-36 hidden h-20 w-48 overflow-hidden shadow-md sm:block" style={{ borderRadius: '0 24px 0 24px' }}>
               <img
                 src={dotPanelBg}
                 alt=""
@@ -86,22 +81,18 @@ const Home = () => {
               />
             </div>
 
-            <div className="relative z-10 aspect-[588/861] w-full overflow-hidden rounded-[28px] shadow-2xl shadow-orange-primary/40 ring-2 ring-orange-primary/40">
-              <img
-                src={Gedung}
-                alt="Gedung kampus penyelenggara OSC"
-                className="h-full w-full object-cover brightness-90 saturate-[1.1]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-neutral-black/70 via-transparent to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-b from-neutral-black/50 via-transparent to-transparent" />
-              <div className="absolute inset-0 rounded-[28px] ring-1 ring-inset ring-orange-primary/30" />
-            </div>
+            {/* Background building asset */}
+            <img
+              src={backgroundBuilding}
+              alt="Gedung kampus penyelenggara OSC"
+              className="relative z-10 w-full object-contain"
+            />
 
             <img
               src={Maskot}
               alt="Maskot OSC"
               loading="lazy"
-              className="pointer-events-none absolute -bottom-3 -left-42 z-20 w-[85%] drop-shadow-[0_20px_25px_rgba(0,0,0,0.5)] sm:w-[95%]"
+              className="pointer-events-none absolute -bottom-2 -left-10 z-20 w-[85%] drop-shadow-[0_20px_25px_rgba(0,0,0,0.5)] sm:-left-30 sm:w-[100%] lg:-left-38 lg:w-[110%]"
             />
           </div>
         </motion.div>
@@ -109,10 +100,11 @@ const Home = () => {
 
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 h-20 bg-neutral-white"
-      >
-        <div className="absolute left-1/2 top-[-32px] h-16 w-3/4 -translate-x-1/2 rounded-full bg-black/25 blur-2xl" />
-      </div>
+        className="absolute inset-x-0 bottom-0 h-24 sm:h-28"
+        style={{
+          background: 'linear-gradient(to bottom, transparent 0%, rgba(26,26,26,0.15) 10%, rgba(26,26,26,0.4) 20%, #1A1A1A 35%, #222222 45%, #3a3a3a 55%, #555555 65%, #777777 72%, #999999 80%, #bbbbbb 88%, #dddddd 94%, #ffffff 100%)',
+        }}
+      />
     </section>
   );
 };
