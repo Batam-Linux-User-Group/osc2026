@@ -1,30 +1,34 @@
-import { Link } from 'react-router-dom';
-import { logo } from '../../assets';
+import {logoGold} from '../../assets';
 import BLUG from '../../assets/blug.svg';
 import { HashLink } from 'react-router-hash-link';
-import { Phone, MapPin, Instagram, Mail } from 'lucide-react';
+import { Phone, Instagram, Mail } from 'lucide-react';
 const Footer = () => {
   const menuItems = [
     { key: 'beranda', label: 'Beranda' },
-    { key: 'tentang-lomba', label: 'Tentang Lomba' },
+    { key: 'tentang-lomba', label: 'Tentang' },
     { key: 'kategori', label: 'Kategori' },
     { key: 'timeline', label: 'Timeline' },
-    { key: 'kontak', label: 'Kontak' },
+    { key: 'sejarah', label: 'Sejarah' },
   ];
   return (
     <div
       id="kontak"
-      className="bg-gradient-to-br from-[#423E40] via-gray-800 to-slate-900 text-white px-6 py-12"
+      className="bg-neutral-black text-white px-6 py-12"
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Logo Section */}
         <div className="flex flex-col items-center lg:items-start">
           <div className="flex space-x-6 mb-4">
-            <img src={logo} alt="Logo 1" className="h-10" />
+            <img src={logoGold} alt="Logo 1" className="h-10" />
             <img src={BLUG} alt="Logo 2" className="h-10" />
           </div>
           <p className="text-sm text-gray-300 text-center md:text-left">
-            Organized by Batam Linux User Group.
+            Batam Linux User Group
+          </p>
+          <p className="text-sm text-gray-300 text-center md:text-left">
+            Jl Ahmad Yani Politeknik Negeri Batam, Batam, 
+            <br />
+            Riau, Indonesia 29431
           </p>
         </div>
 
@@ -37,19 +41,7 @@ const Footer = () => {
                 <span className="mr-2">
                   <Phone size={15} />
                 </span>
-                <span>082388304818 - Aurel</span>
-              </li>
-              <li className="flex items-center">
-                <span className="mr-2">
-                  <Phone size={15} />
-                </span>
-                <span>087851618604 - Kayla</span>
-              </li>
-              <li className="flex items-center">
-                <span className="mr-2">
-                  <Instagram size={15} />
-                </span>
-                <span>@batamlinux</span>
+                <span>088742634948 - Atina Azahra</span>
               </li>
               <li className="flex items-center">
                 <span className="mr-2">
@@ -57,14 +49,11 @@ const Footer = () => {
                 </span>
                 <span>intiblug@gmail.com</span>
               </li>
-              <li className="flex">
+              <li className="flex items-center">
                 <span className="mr-2">
-                  <MapPin size={15} />
+                  <Instagram size={15} />
                 </span>
-                <span>
-                  Jl Ahmad Yani Politeknik Negeri Batam, Batam, Riau, Indonesia
-                  29431
-                </span>
+                <span>@batamlinux</span>
               </li>
             </ul>
           </div>
@@ -83,22 +72,9 @@ const Footer = () => {
                   </HashLink>
                 </li>
               ))}
-              <li>
-                <Link
-                  to={'/daftar'}
-                  className="hover:text-gray-300 transition-colors"
-                >
-                  Daftar Lomba
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="mt-8 pt-8 border-t border-gray-600 text-center text-sm text-gray-300">
-        Open Source Competition 2025. Batam Linux User Group.
       </div>
     </div>
   );

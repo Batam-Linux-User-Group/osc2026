@@ -124,12 +124,12 @@ const FormRegister: React.FC = () => {
     <div className="bg-[#0F0E0E] min-h-screen flex items-center justify-center p-4 py-10 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-orange-600/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-orange-primary/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-orange-dark/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
       <div
         onClick={() => setOpenModal(true)}
-        className="fixed bottom-10 right-5 z-30 bg-[#E55A2B] text-white rounded-full p-3 shadow-lg hover:bg-[#d34e20] transition-colors cursor-pointer"
+        className="fixed bottom-10 right-5 z-30 bg-orange-primary text-neutral-white rounded-full p-3 shadow-lg hover:bg-orange-dark transition-colors cursor-pointer"
       >
         <Info size={20} />
       </div>
@@ -138,7 +138,7 @@ const FormRegister: React.FC = () => {
         <div className="flex justify-start mb-4">
           <Link
             to={"/"}
-            className="inline-flex items-center gap-1.5 px-4 py-1.5 border border-zinc-700 bg-[#121111]/80 rounded-full text-white text-sm font-semibold hover:bg-zinc-800/50 transition-all cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-4 py-1.5 border border-zinc-700 bg-neutral-black/80 rounded-full text-neutral-white text-sm font-semibold hover:bg-zinc-800/50 transition-all cursor-pointer"
           >
             <span className="text-[10px] leading-none">◀</span> Back
           </Link>
@@ -148,7 +148,7 @@ const FormRegister: React.FC = () => {
         {/* Form */}
         <form
           onSubmit={handleSubmit}
-          className="bg-[#121111] rounded-2xl p-8 border border-[#E55A2B]/15 shadow-2xl"
+          className="bg-neutral-black rounded-2xl p-8 border border-orange-primary/15 shadow-2xl"
           id="formRegister"
         >
           <div className="space-y-6">

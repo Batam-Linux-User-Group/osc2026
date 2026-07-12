@@ -53,7 +53,7 @@ const ModalInfo: React.FC<ModalInfoProps> = ({ isOpen, onClose }) => {
           animation: "fadeInZoom 0.3s ease-out",
           transformOrigin: "center",
         }}
-        className="bg-[#121111] border border-[#E55A2B]/15 rounded-2xl shadow-2xl w-full max-w-md p-6 relative max-h-[90vh] flex flex-col"
+        className="bg-neutral-black border border-orange-primary/15 rounded-2xl shadow-2xl w-full max-w-md p-6 relative max-h-[90vh] flex flex-col"
       >
         {/* Tombol Close */}
         <button
@@ -66,7 +66,7 @@ const ModalInfo: React.FC<ModalInfoProps> = ({ isOpen, onClose }) => {
         {/* Judul */}
         <div className="border-b border-zinc-800/80 pb-4 mb-4">
           <h3 className="text-xl font-bold text-center text-white flex items-center justify-center gap-2">
-            <Megaphone size={24} className="text-[#E55A2B]" /> Kontak PIC Lomba
+            <Megaphone size={24} className="text-orange-primary" /> Kontak PIC Lomba
           </h3>
         </div>
  
@@ -81,10 +81,10 @@ const ModalInfo: React.FC<ModalInfoProps> = ({ isOpen, onClose }) => {
           {KontakLomba.map((kontak, idx) => (
             <div
               key={idx}
-              className="bg-[#1C1A1A] border border-zinc-800/80 rounded-xl p-4 shadow-sm hover:border-[#E55A2B]/40 transition-all space-y-2"
+              className="bg-[#1C1A1A] border border-zinc-800/80 rounded-xl p-4 shadow-sm hover:border-orange-primary/40 transition-all space-y-2"
             >
               <p className="font-bold text-white flex items-center gap-2 text-sm">
-                <Megaphone size={16} className="text-[#E55A2B]" /> {kontak.lomba}
+                <Megaphone size={16} className="text-orange-primary" /> {kontak.lomba}
               </p>
               <div className="flex flex-col gap-1.5 pl-6">
                 <p className="text-gray-300 flex items-center gap-2 text-xs">
@@ -96,7 +96,7 @@ const ModalInfo: React.FC<ModalInfoProps> = ({ isOpen, onClose }) => {
                     href={urlKontak(kontak.whatsapp, kontak.nama, kontak.lomba)} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-[#E55A2B] hover:text-[#d34e20] transition-colors font-mono font-medium"
+                    className="text-orange-primary hover:text-orange-dark transition-colors font-mono font-medium"
                   >
                     {kontak.nomor}
                   </a>
