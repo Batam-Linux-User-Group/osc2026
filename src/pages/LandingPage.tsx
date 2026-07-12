@@ -7,17 +7,19 @@ import Footer from '../components/LandingPage/Footer';
 import { Link } from 'react-router-dom';
 import { File } from 'lucide-react';
 import Gallery from '../components/LandingPage/Gallery';
+import ChampionSection from '../components/LandingPage/ChampionSection';
 
 const LandingPage = () => {
   return (
     <div>
       <Navbar />
-      <Home title="Bangun Masa Depan Bersama, Mulai dari " />
-      <About tema="Open Source Arena: Battle of Brilliant Minds" />
+      <Home />
+      <About />
 
       <CompetitionSection />
       <TimelineSection />
       <Gallery />
+      <ChampionSection />
       <Footer />
       <Link
         to={'/daftar'}
