@@ -136,7 +136,7 @@ const Navbar = () => {
             onMouseLeave={() => setGuideMenuOpen(false)}
           >
             <a
-              href="https://polibatam.id/panduan-lomba-osc-2025"
+              href="https://polibatam.id/panduan-lomba-osc-2026"
               className="relative group flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-semibold transition-all duration-300 hover:bg-slate-700/30 hover:text-[#E9672D]"
             >
               <span className="relative z-10">Panduan Lomba</span>
@@ -160,7 +160,7 @@ const Navbar = () => {
                   <ul className="py-2">
                     <li>
                       <a
-                        href="https://polibatam.id/panduan-lomba-osc-2025"
+                        href="https://polibatam.id/panduan-lomba-osc-2026"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block px-5 py-3 text-base font-semibold text-white transition-colors duration-200 hover:bg-gray-100 hover:text-[#E9672D]"
@@ -170,7 +170,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <a
-                        href="https://polibatam.id/panduan-lomba-osc-2025"
+                        href="https://polibatam.id/panduan-lomba-osc-2026"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block px-5 py-3 text-base font-semibold text-white transition-colors duration-200 hover:bg-gray-100 hover:text-[#E9672D]"
@@ -180,7 +180,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <a
-                        href="https://polibatam.id/panduan-lomba-osc-2025"
+                        href="https://polibatam.id/panduan-lomba-osc-2026"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block px-5 py-3 text-base font-semibold text-white transition-colors duration-200 hover:bg-gray-100 hover:text-[#E9672D]"
@@ -190,7 +190,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <a
-                        href="https://polibatam.id/panduan-lomba-osc-2025"
+                        href="https://polibatam.id/panduan-lomba-osc-2026"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block px-5 py-3 text-base font-semibold text-white transition-colors duration-200 hover:bg-gray-100 hover:text-[#E9672D]"
@@ -263,7 +263,7 @@ const Navbar = () => {
         </Link>
 
         <a
-          href="https://polibatam.id/panduan-lomba-osc-2025"
+          href="https://polibatam.id/panduan-lomba-osc-2026"
           target="_blank"
           rel="noopener noreferrer"
           onClick={closeMenu}

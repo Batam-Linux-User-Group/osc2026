@@ -270,7 +270,7 @@ const AdminPage = () => {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div>
             <h1 className="text-xl font-bold">
-              OSC 2025 <span className="text-orange-500">Admin</span>
+              OSC 2026 <span className="text-orange-500">Admin</span>
             </h1>
             <p className="text-gray-500 text-xs">
               Selamat datang, {adminUser}

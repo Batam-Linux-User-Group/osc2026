@@ -57,7 +57,7 @@ const LoginPage = () => {
             Admin Login
           </h1>
           <p className="text-gray-500 text-center text-sm mb-6">
-            Open Source Competition 2025
+            Open Source Competition 2026
           </p>
 
           {error && (
