@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import FormRegister from '../pages/FormRegisterPage';
 import LandingPage from '../pages/LandingPage';
-import LeaderboardPage from '../pages/LeaderboardPage';
+import LeaderboardPage2 from '../pages/LeaderboardPage2';
 import LoginPage from '../pages/LoginPage';
 import AdminPage from '../pages/AdminPage';
 import NotFoundPage from '../pages/NotFoundPage';
@@ -19,7 +19,7 @@ const router = createBrowserRouter(
     },
     {
       path: '/leaderboard',
-      element: <LeaderboardPage />,
+      element: <LeaderboardPage2 />,
     },
     {
       path: '/login',
