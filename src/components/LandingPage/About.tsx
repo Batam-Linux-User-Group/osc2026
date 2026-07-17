@@ -4,15 +4,13 @@ const About = () => {
       {/* Judul */}
       <div className="relative flex justify-center items-center mb-6">
         <h3 
-          className="font-bold z-10"
+          className="font-bold z-10 text-4xl sm:text-5xl md:text-6xl text-[#094285]"
           style={{
             fontFamily: 'Days One',
             fontWeight: 400,
-            fontSize: '64px',
             lineHeight: '100%',
             letterSpacing: '0%',
             textAlign: 'center',
-            color: '#094285'
           }}
         >
           Apa Itu <span 
@@ -20,7 +18,6 @@ const About = () => {
             style={{
               fontFamily: 'Days One',
               fontWeight: 400,
-              fontSize: '64px',
               lineHeight: '100%',
               letterSpacing: '0%',
               textAlign: 'center'

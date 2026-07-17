@@ -335,7 +335,7 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ competitions }) => {
                           <div className="min-w-0">
                             <div className="truncate text-[16px] font-bold text-[#ff7d3a] sm:text-[17px]">
                               {participant.name}
-                clear          </div>
+                            </div>
                             <div className="truncate text-[12px] text-white/70">
                               {participant.school || '-'}
                             </div>
