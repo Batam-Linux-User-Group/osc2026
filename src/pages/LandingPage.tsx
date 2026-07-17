@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import CompetitionSection from '../components/CompetitionSection';
 import About from '../components/LandingPage/About';
 import Home from '../components/LandingPage/Home';
@@ -10,6 +11,10 @@ import Gallery from '../components/LandingPage/Gallery';
 import ChampionSection from '../components/LandingPage/ChampionSection';
 
 const LandingPage = () => {
+  useEffect(() => {
+    document.title = "Open Source Competition 2026 | Beranda";
+  }, []);
+
   return (
     <div>
       <Navbar />

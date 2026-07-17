@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Lock, User, Eye, EyeOff } from 'lucide-react';
@@ -37,6 +37,10 @@ const LoginPage = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    document.title = "Login Admin | OSC 2026";
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0F0E0E] via-gray-900 to-slate-900 flex items-center justify-center p-4">

@@ -6,37 +6,35 @@ import LoginPage from '../pages/LoginPage';
 import AdminPage from '../pages/AdminPage';
 import NotFoundPage from '../pages/NotFoundPage';
 
-
-const router = createBrowserRouter(
-  [
-    {
-      path: '/',
-      element: <LandingPage />,
-    },
-    {
-      path: '/daftar',
-      element: <FormRegister />,
-    },
-    {
-      path: '/leaderboard',
-      element: <LeaderboardPage />,
-    },
-    {
-      path: '/login',
-      element: <LoginPage />,
-    },
-    {
-      path: '/admin',
-      element: <AdminPage />,
-    },
-    {
-      path: '*',
-      element: <NotFoundPage />,
-    },
-  ],
+export const routes = [
   {
-    basename: import.meta.env.VITE_BASE_PATH || '',
-  }
-);
+    path: '/',
+    element: <LandingPage />,
+  },
+  {
+    path: '/daftar',
+    element: <FormRegister />,
+  },
+  {
+    path: '/leaderboard',
+    element: <LeaderboardPage />,
+  },
+  {
+    path: '/login',
+    element: <LoginPage />,
+  },
+  {
+    path: '/admin',
+    element: <AdminPage />,
+  },
+  {
+    path: '*',
+    element: <NotFoundPage />,
+  },
+];
+
+const router = createBrowserRouter(routes, {
+  basename: import.meta.env.VITE_BASE_PATH || '',
+});
 
 export default router;
