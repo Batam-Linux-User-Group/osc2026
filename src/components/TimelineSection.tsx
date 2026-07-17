@@ -124,11 +124,14 @@ function Card({
       {!compact && (
         <div
           style={{
-            width: 18,
-            height: 26,
-            background: WHITE,
+            width: 0,
+            height: 0,
             flexShrink: 0,
-            borderRadius: isLeft ? "0 10px 10px 0" : "10px 0 0 10px",
+            borderTop: "13px solid transparent",
+            borderBottom: "13px solid transparent",
+            ...(isLeft
+              ? { borderLeft: `18px solid ${WHITE}` }
+              : { borderRight: `18px solid ${WHITE}` }),
           }}
         />
       )}
