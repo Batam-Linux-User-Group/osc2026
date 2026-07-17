@@ -29,12 +29,21 @@ const About = () => {
       </div>
 
       {/* Deskripsi */}
-      <p 
-        className="text-lg leading-relaxed"
-        style={{ color: '#094285' }}
-      >
-        <span className="text-orange-primary">Open Source Competition</span> atau <span className="text-orange-primary">OSC</span> adalah ajang lomba untuk menguji keahlian dan kreativitas peserta dalam problem solving menggunakan open source software.
-      </p>
+      <div className="space-y-4">
+        <p 
+          className="text-lg leading-relaxed"
+          style={{ color: '#094285' }}
+        >
+          <span className="text-orange-primary font-bold">Open Source Competition</span> atau <span className="text-orange-primary font-bold">OSC</span> adalah ajang lomba untuk menguji keahlian dan kreativitas peserta dalam problem solving menggunakan open source software.
+        </p>
+
+        <p 
+          className="text-lg leading-relaxed"
+          style={{ color: '#094285' }}
+        >
+          OSC 2026 hadir dengan tema <span className="font-bold italic text-orange-primary">"Clash of Code: Open Source Edition"</span> dan 4 cabang lomba menarik yang bisa kamu ikuti!
+        </p>
+      </div>
     </section>
   );
 };
