@@ -1,24 +1,39 @@
 import { createBrowserRouter } from 'react-router-dom';
 import FormRegister from '../pages/FormRegisterPage';
 import LandingPage from '../pages/LandingPage';
-import LeaderboardPage from '../pages/LeaderboardPage';
+import LeaderboardPage2 from '../pages/LeaderboardPage2';
 import LoginPage from '../pages/LoginPage';
 import AdminPage from '../pages/AdminPage';
 import NotFoundPage from '../pages/NotFoundPage';
 
-export const routes = [
-  {
-    path: '/',
-    element: <LandingPage />,
-  },
-  {
-    path: '/daftar',
-    element: <FormRegister />,
-  },
-  {
-    path: '/leaderboard',
-    element: <LeaderboardPage />,
-  },
+
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <LandingPage />,
+    },
+    {
+      path: '/daftar',
+      element: <FormRegister />,
+    },
+    {
+      path: '/leaderboard',
+      element: <LeaderboardPage2 />,
+    },
+    {
+      path: '/login',
+      element: <LoginPage />,
+    },
+    {
+      path: '/admin',
+      element: <AdminPage />,
+    },
+    {
+      path: '*',
+      element: <NotFoundPage />,
+    },
+  ],
   {
     path: '/login',
     element: <LoginPage />,
