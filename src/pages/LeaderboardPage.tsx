@@ -39,6 +39,10 @@ export default function LeaderboardPage() {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    document.title = "Peringkat Peserta | OSC 2026";
+  }, []);
+
+  useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
         const res = await axios.get<ApiLeaderboard[]>(`${API_URL}/api/peserta/leaderboard`);
