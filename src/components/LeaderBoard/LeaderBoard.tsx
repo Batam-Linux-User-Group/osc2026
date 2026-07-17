@@ -11,7 +11,7 @@ import {
   IconLombaLsa,
   IconLombaWeb,
   IconLombaNetwork,
-} from '@/assets/leaderboard/index';
+} from '../../assets/leaderboard';
 
 interface CompetitionSection {
   id: string;
