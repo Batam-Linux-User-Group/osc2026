@@ -78,7 +78,7 @@ const Gallery = () => {
                   <img
                     src={item.src}
                     alt={item.alt}
-                    className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full aspect-[4/3] object-cover grayscale transition-all duration-500 group-hover:scale-110 group-hover:grayscale-0"
                   />
                   {/* Logo Badge */}
                   <div className="absolute top-3 left-3 md:top-4 md:left-4 bg-neutral-white rounded-xl p-2 md:p-2.5 shadow-lg">
