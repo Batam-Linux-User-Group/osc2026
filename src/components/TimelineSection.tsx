@@ -1,5 +1,6 @@
 import { useRef, useLayoutEffect, useState, useCallback, useEffect } from "react";
 import { FileText, Users, Calendar, Award, Gift } from "lucide-react";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 const ORANGE = "var(--color-orange-primary)";
 const BG = "var(--color-neutral-black)";
@@ -52,12 +53,13 @@ function Card({
             ? "10px 10px 10px 28px"
             : "10px 28px 10px 10px",
           borderRadius: 9999,
-          boxShadow: "0 6px 28px rgba(0,0,0,0.35)",
           display: "flex",
           alignItems: "center",
           flexDirection: isLeft ? "row" : "row-reverse",
           gap: compact ? 10 : 16,
           minHeight: compact ? 64 : 72,
+          marginLeft: -6,
+          marginRight: -6
         }}
       >
         {/* Text side */}
@@ -129,9 +131,10 @@ function Card({
             flexShrink: 0,
             borderTop: "13px solid transparent",
             borderBottom: "13px solid transparent",
-            ...(isLeft
-              ? { borderLeft: `18px solid ${WHITE}` }
-              : { borderRight: `18px solid ${WHITE}` }),
+            ...(align === "left"
+              ? { borderLeft: `20px solid ${WHITE}` }
+              : { borderRight: `20px solid ${WHITE}` }),
+              
           }}
         />
       )}
@@ -189,10 +192,20 @@ interface SvgState {
 }
 
 export default function TimelineSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [svg, setSvg] = useState<SvgState | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+
+  // Framer motion scroll tracking
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
+
+  // Untuk animasi line memanjang, mapping scroll 0-1 ke 0-1
+  const lineProgress = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   useEffect(() => {
     const updateMobile = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
@@ -255,7 +268,7 @@ export default function TimelineSection() {
   }, [measure]);
 
   return (
-    <section id="timeline" style={{ backgroundColor: BG, padding: "80px 0", overflow: "hidden" }}>
+    <section id="timeline" ref={containerRef} style={{ backgroundColor: BG, padding: "80px 0", overflow: "hidden" }}>
       <div style={{ maxWidth: 920, margin: "0 auto", padding: "0 24px" }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 36 }}>
@@ -298,13 +311,14 @@ export default function TimelineSection() {
               width={svg.w}
               height={svg.h}
             >
-              <path
+              <motion.path
                 d={svg.pathD}
                 stroke="rgba(255,255,255,0.82)"
                 strokeWidth="2"
                 strokeDasharray="8 6"
                 fill="none"
                 strokeLinecap="round"
+                style={{ pathLength: lineProgress }}
               />
               <circle cx={svg.cx} cy={svg.startY} r="9" fill="#fff" />
               <circle cx={svg.cx} cy={svg.endY} r="9" fill="#fff" />
@@ -337,8 +351,12 @@ export default function TimelineSection() {
               />
               <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
                 {steps.map((s, idx) => (
-                  <div
+                  <motion.div
                     key={s.step}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
                     style={{
                       display: "grid",
                       gridTemplateColumns: "20px minmax(0, 1fr)",
@@ -379,7 +397,7 @@ export default function TimelineSection() {
                         compact
                       />
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -407,8 +425,12 @@ export default function TimelineSection() {
                     />
                   );
                   return (
-                    <div
+                    <motion.div
                       key={s.step}
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ duration: 0.6, delay: idx * 0.15 }}
                       style={{
                         display: "grid",
                         gridTemplateColumns: "minmax(0, 1fr) 64px minmax(0, 1fr)",
@@ -439,7 +461,7 @@ export default function TimelineSection() {
                           </div>
                         </>
                       )}
-                    </div>
+                    </motion.div>
                   );
                 })}
               </div>
