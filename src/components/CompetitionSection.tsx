@@ -4,6 +4,7 @@ import {
   Network,
   MonitorSmartphone,
 } from "lucide-react";
+import mascot from "../assets/maskot.png";
 
 const competitions = [
   {
@@ -40,7 +41,7 @@ export default function CompetitionSection() {
 
       {/* Left Character */}
       <img
-        src="src/assets/maskot.png"
+        src={mascot}
         alt="Mascot"
         className="absolute bottom-0 left-0 hidden w-56 lg:block"
       />

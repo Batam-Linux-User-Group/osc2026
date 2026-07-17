@@ -34,22 +34,9 @@ const router = createBrowserRouter(
       element: <NotFoundPage />,
     },
   ],
-  {
-    path: '/login',
-    element: <LoginPage />,
-  },
-  {
-    path: '/admin',
-    element: <AdminPage />,
-  },
-  {
-    path: '*',
-    element: <NotFoundPage />,
-  },
-];
-
-const router = createBrowserRouter(routes, {
+{
   basename: import.meta.env.VITE_BASE_PATH || '',
 });
+
 
 export default router;

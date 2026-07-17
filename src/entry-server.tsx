@@ -4,7 +4,7 @@ import { StaticRouter } from 'react-router';
 import { Routes, Route } from 'react-router-dom';
 import FormRegister from './pages/FormRegisterPage';
 import LandingPage from './pages/LandingPage';
-import LeaderboardPage from './pages/LeaderboardPage';
+import LeaderboardPage2 from './pages/LeaderboardPage2';
 import LoginPage from './pages/LoginPage';
 import NotFoundPage from './pages/NotFoundPage';
 
@@ -15,7 +15,7 @@ export function render(url: string) {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/daftar" element={<FormRegister />} />
-          <Route path="/leaderboard" element={<LeaderboardPage />} />
+          <Route path="/leaderboard" element={<LeaderboardPage2 />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
