@@ -40,7 +40,10 @@ const LoginPage = () => {
 
   useEffect(() => {
     document.title = "Login Admin | OSC 2026";
-  }, []);
+    if (localStorage.getItem('token')) {
+      navigate('/admin');
+    }
+  }, [navigate]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0F0E0E] via-gray-900 to-slate-900 flex items-center justify-center p-4">
