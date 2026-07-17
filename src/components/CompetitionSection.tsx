@@ -10,25 +10,25 @@ const competitions = [
   {
     title: "Mascot Design",
     description:
-      "Create an iconic character that represents the spirit of BLUG Showcase. Your creativity through unique artworks, vibrant color palettes, and expressive personality traits.",
+      "Tantang kreativitasmu dalam mendesain maskot ikonik yang merepresentasikan semangat Open Source Competition 2026.",
     icon: Brush,
   },
   {
     title: "Linux System Admin",
     description:
-      "Create an iconic character that represents the spirit of BLUG Showcase. Your creativity through unique artworks, vibrant color palettes, and expressive personality traits.",
+      "Uji kemampuan teknismu dalam mengelola, mengkonfigurasi, dan memecahkan masalah pada sistem operasi berbasis Linux.",
     icon: ShieldCheck,
   },
   {
     title: "Network Simulation",
     description:
-      "Create an iconic character that represents the spirit of BLUG Showcase. Your creativity through unique artworks, vibrant color palettes, and expressive personality traits.",
+      "Tunjukkan keahlianmu dalam merancang, mensimulasikan, dan menganalisis arsitektur jaringan komputer modern.",
     icon: Network,
   },
   {
     title: "Website Design",
     description:
-      "Create an iconic character that represents the spirit of BLUG Showcase. Your creativity through unique artworks, vibrant color palettes, and expressive personality traits.",
+      "Buat karya desain antarmuka website yang tidak hanya indah secara visual, tetapi juga responsif dan ramah pengguna.",
     icon: MonitorSmartphone,
   },
 ];

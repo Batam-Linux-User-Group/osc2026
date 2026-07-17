@@ -64,43 +64,11 @@ const findCompetition = (competitions: CompetitionSection[], title: string) =>
   competitions.find((competition) => normalizeTitle(competition.title) === title);
 
 const createFallbackCompetition = (title: string): CompetitionSection => {
-  const fallbackParticipants: Record<string, CompetitionSection['participants']> = {
-    'web design': [
-      { id: 'dummy-1', name: 'Adhyca', school: 'SMAN 20 Batam', score: 192 },
-      { id: 'dummy-2', name: 'Rajiv Tajusa David', school: 'SMKN 1 Batam', score: 188 },
-      { id: 'dummy-3', name: 'Fikri Ramadhan', school: 'SMKN 2 Batam', score: 176 },
-      { id: 'dummy-4', name: 'Nadya Putri', school: 'SMA 5 Batam', score: 168 },
-    ],
-    'mascot design': [
-      { id: 'dummy-5', name: 'Salsa Aulia', school: 'SMAN 3 Batam', score: 191 },
-      { id: 'dummy-6', name: 'Muhammad Ilham', school: 'SMKN 1 Batam', score: 184 },
-      { id: 'dummy-7', name: 'Dita Maharani', school: 'SMAN 8 Batam', score: 170 },
-      { id: 'dummy-8', name: 'Rendy Saputra', school: 'SMAN 12 Batam', score: 164 },
-    ],
-    'network simulation': [
-      { id: 'dummy-9', name: 'Aldo Pratama', school: 'SMKN 1 Batam', score: 195 },
-      { id: 'dummy-10', name: 'Nurul Aisyah', school: 'SMAN 4 Batam', score: 189 },
-      { id: 'dummy-11', name: 'Kevin Aditya', school: 'SMKN 3 Batam', score: 177 },
-      { id: 'dummy-12', name: 'Siti Khadijah', school: 'SMAN 7 Batam', score: 171 },
-    ],
-    'linux system administration': [
-      { id: 'dummy-13', name: 'Bagas Firmansyah', school: 'SMKN 1 Batam', score: 193 },
-      { id: 'dummy-14', name: 'Tiara Melati', school: 'SMAN 6 Batam', score: 185 },
-      { id: 'dummy-15', name: 'Rizki Maulana', school: 'SMKN 2 Batam', score: 178 },
-      { id: 'dummy-16', name: 'Alya Zahra', school: 'SMAN 9 Batam', score: 169 },
-    ],
-  };
-
   return {
     id: `fallback-${title}`,
     title,
     color: '#f36f22',
-    participants: fallbackParticipants[title] ?? [
-      { id: 'dummy-17', name: 'Peserta Dummy 1', school: 'SMK Contoh', score: 190 },
-      { id: 'dummy-18', name: 'Peserta Dummy 2', school: 'SMK Contoh', score: 182 },
-      { id: 'dummy-19', name: 'Peserta Dummy 3', school: 'SMK Contoh', score: 174 },
-      { id: 'dummy-20', name: 'Peserta Dummy 4', school: 'SMK Contoh', score: 166 },
-    ],
+    participants: [],
   };
 };
 
@@ -258,8 +226,14 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ competitions }) => {
               </div>
 
               <div className="flex flex-col gap-6">
-                <div className="rounded-3xl bg-transparent px-2 pb-6 pt-5 sm:px-3 sm:pb-7 sm:pt-6">
-                  <div className="flex flex-col items-center gap-8 md:flex-row md:items-end md:justify-center md:gap-6">
+                {orderedParticipants.length === 0 ? (
+                  <div className="py-20 text-center text-gray-500">
+                    <p className="text-xl font-medium">Belum ada data peserta untuk lomba ini</p>
+                  </div>
+                ) : (
+                  <>
+                    <div className="rounded-3xl bg-transparent px-2 pb-6 pt-5 sm:px-3 sm:pb-7 sm:pt-6">
+                      <div className="flex flex-col items-center gap-8 md:flex-row md:items-end md:justify-center md:gap-6">
                     {podiumParticipants.map((participant, index) => {
                       const rank = index == 0 ? 2 : index == 1 ? 1 : 3;
                       const medalImage = rank === 1 ? JuaraSatu : rank === 2 ? JuaraDua : JuaraTiga;
@@ -349,15 +323,17 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ competitions }) => {
                           <div className="text-[12px] text-white/70">
                             points
                           </div>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </div>
+                </>
+              )}
             </div>
-          </section>
-        ) : null}
+          </div>
+        </section>
+      ) : null}
       </div>
     </main>
   );

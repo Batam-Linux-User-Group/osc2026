@@ -8,11 +8,11 @@ const BULGE = 50;
 const MOBILE_BREAKPOINT = 768;
 
 const steps = [
-  { step: "01", title: "PENDAFTARAN", date: "28 Juli - 15 Agustus 2026", Icon: FileText },
-  { step: "02", title: "TECHNICAL MEETING", date: "28 Juli - 15 Agustus 2026", Icon: Users },
-  { step: "03", title: "PELAKSANAAN LOMBA", date: "28 Juli - 15 Agustus 2026", Icon: Calendar },
-  { step: "04", title: "PENGUMUMAN JUARA", date: "28 Juli - 15 Agustus 2026", Icon: Award },
-  { step: "05", title: "PENYERAHAN HADIAH", date: "28 Juli - 15 Agustus 2026", Icon: Gift },
+  { step: "01", title: "PENDAFTARAN", date: "TBA", Icon: FileText },
+  { step: "02", title: "TECHNICAL MEETING", date: "TBA", Icon: Users },
+  { step: "03", title: "PELAKSANAAN LOMBA", date: "TBA", Icon: Calendar },
+  { step: "04", title: "PENGUMUMAN JUARA", date: "TBA", Icon: Award },
+  { step: "05", title: "PENYERAHAN HADIAH", date: "TBA", Icon: Gift },
 ];
 
 /* ── Pill card with icon badge & connector bridge ── */
