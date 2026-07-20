@@ -20,21 +20,25 @@ const LandingPage = () => {
       <Navbar />
       <Home />
       <About />
-
       <CompetitionSection />
       <TimelineSection />
       <Gallery />
       <ChampionSection />
       <Footer />
-      <Link
-        to={'/daftar'}
-        className="group fixed bottom-10 right-5 z-30 bg-orange-primary text-neutral-white rounded-full p-3 shadow-lg hover:bg-orange-dark transition-colors cursor-pointer flex items-center gap-2"
-      >
-        <File size={30} />
-        <p className="hidden group-hover:block transition-all duration-300">
-          Daftar Sekarang !!
-        </p>
-      </Link>
+    <Link
+  to={'/daftar'}
+  className="group fixed bottom-10 right-5 z-30 flex items-center gap-2 rounded-full bg-orange-primary p-3 text-neutral-white shadow-lg transition-colors hover:bg-orange-dark cursor-pointer"
+>
+  <span className="pointer-events-none absolute -top-10 right-0 whitespace-nowrap rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-black shadow-md animate-bounce">
+    Klik di sini!
+    <span className="absolute -bottom-1 right-4 h-2 w-2 rotate-45 bg-white" />
+  </span>
+
+  <File size={30} />
+  <p className="hidden transition-all duration-300 group-hover:block">
+    Daftar Sekarang !!
+  </p>
+</Link>
     </div>
   );
 };

@@ -5,15 +5,15 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 const ORANGE = "var(--color-orange-primary)";
 const BG = "var(--color-neutral-black)";
 const WHITE = "var(--color-neutral-white)";
-const BULGE = 50;
+const BULGE = 60;
 const MOBILE_BREAKPOINT = 768;
 
 const steps = [
-  { step: "01", title: "PENDAFTARAN", date: "TBA", Icon: FileText },
-  { step: "02", title: "TECHNICAL MEETING", date: "TBA", Icon: Users },
-  { step: "03", title: "PELAKSANAAN LOMBA", date: "TBA", Icon: Calendar },
-  { step: "04", title: "PENGUMUMAN JUARA", date: "TBA", Icon: Award },
-  { step: "05", title: "PENYERAHAN HADIAH", date: "TBA", Icon: Gift },
+  { step: "01", title: "PENDAFTARAN", date: "21 Juli 2026", Icon: FileText },
+  { step: "02", title: "TECHNICAL MEETING", date: "12 Agustus 2026", Icon: Users },
+  { step: "03", title: "PELAKSANAAN LOMBA", date: "19 Agustus 2026", Icon: Calendar },
+  { step: "04", title: "PENGUMUMAN JUARA", date: "20 Agustus 2026", Icon: Award },
+  { step: "05", title: "PENYERAHAN HADIAH", date: "21 Agustus 2026", Icon: Gift },
 ];
 
 /* ── Pill card with icon badge & connector bridge ── */
@@ -31,8 +31,8 @@ function Card({
   compact?: boolean;
 }) {
   const isLeft = align === "left";
-  const pillSize = compact ? 48 : 60;
-  const innerSize = compact ? 34 : 42;
+  const pillSize = compact ? 60 : 84;
+  const innerSize = compact ? 44 : 62;
 
   return (
     <div
@@ -46,18 +46,18 @@ function Card({
       <div
         style={{
           background: WHITE,
-          width: compact ? "100%" : "clamp(280px, 38vw, 380px)",
+          width: compact ? "100%" : "clamp(360px, 46vw, 480px)",
           padding: compact
-            ? "10px 10px 10px 20px"
+            ? "14px 14px 14px 26px"
             : isLeft
-            ? "10px 10px 10px 28px"
-            : "10px 28px 10px 10px",
+            ? "16px 16px 16px 36px"
+            : "16px 36px 16px 16px",
           borderRadius: 9999,
           display: "flex",
           alignItems: "center",
           flexDirection: isLeft ? "row" : "row-reverse",
-          gap: compact ? 10 : 16,
-          minHeight: compact ? 64 : 72,
+          gap: compact ? 14 : 22,
+          minHeight: compact ? 84 : 100,
           marginLeft: -6,
           marginRight: -6
         }}
@@ -66,7 +66,7 @@ function Card({
         <div style={{ flex: 1, minWidth: 0, textAlign: isLeft ? "left" : "right" }}>
           <p
             style={{
-              fontSize: compact ? 14 : "clamp(14px, 1.4vw, 18px)",
+              fontSize: compact ? 18 : "clamp(20px, 2vw, 26px)",
               fontWeight: 700,
               color: "var(--color-neutral-black)",
               margin: 0,
@@ -80,10 +80,10 @@ function Card({
           </p>
           <p
             style={{
-              fontSize: compact ? 11 : "clamp(10px, 1vw, 13px)",
+              fontSize: compact ? 13 : "clamp(13px, 1.3vw, 16px)",
               color: "var(--color-neutral-gray)",
               fontWeight: 500,
-              margin: "4px 0 0",
+              margin: "6px 0 0",
               lineHeight: 1.25,
               fontFamily: "var(--font-body)",
             }}
@@ -103,7 +103,7 @@ function Card({
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            boxShadow: `0 0 18px ${ORANGE}55`,
+            boxShadow: `0 0 22px ${ORANGE}55`,
           }}
         >
           <div
@@ -117,7 +117,7 @@ function Card({
               justifyContent: "center",
             }}
           >
-            <Icon size={compact ? 18 : 22} color={WHITE} />
+            <Icon size={compact ? 24 : 32} color={WHITE} />
           </div>
         </div>
       </div>
@@ -129,11 +129,11 @@ function Card({
             width: 0,
             height: 0,
             flexShrink: 0,
-            borderTop: "13px solid transparent",
-            borderBottom: "13px solid transparent",
+            borderTop: "17px solid transparent",
+            borderBottom: "17px solid transparent",
             ...(align === "left"
-              ? { borderLeft: `20px solid ${WHITE}` }
-              : { borderRight: `20px solid ${WHITE}` }),
+              ? { borderLeft: `26px solid ${WHITE}` }
+              : { borderRight: `26px solid ${WHITE}` }),
               
           }}
         />
@@ -150,13 +150,13 @@ function StepLabel({ step, align }: { step: string; align: "left" | "right" }) {
         display: "flex",
         flexDirection: "column",
         lineHeight: 1,
-        minWidth: 70,
+        minWidth: 90,
         alignItems: align === "left" ? "flex-start" : "flex-end",
       }}
     >
       <span
         style={{
-          fontSize: "clamp(10px, 1vw, 12px)",
+          fontSize: "clamp(12px, 1.2vw, 15px)",
           fontWeight: 400,
           letterSpacing: "0.15em",
           color: "rgba(255,255,255,0.72)",
@@ -167,7 +167,7 @@ function StepLabel({ step, align }: { step: string; align: "left" | "right" }) {
       </span>
       <span
         style={{
-          fontSize: "clamp(32px, 4.2vw, 44px)",
+          fontSize: "clamp(42px, 5.6vw, 58px)",
           fontWeight: 400,
           color: ORANGE,
           lineHeight: 1,
@@ -233,8 +233,8 @@ export default function TimelineSection() {
     if (positions.length < 2) return;
 
     const cx = positions[0].x;
-    const offset = isMobile ? 28 : 44;
-    const curveBulge = isMobile ? 26 : BULGE;
+    const offset = isMobile ? 34 : 56;
+    const curveBulge = isMobile ? 30 : BULGE;
     const startY = positions[0].y - offset;
     const endY = positions[positions.length - 1].y + offset;
 
@@ -268,13 +268,13 @@ export default function TimelineSection() {
   }, [measure]);
 
   return (
-    <section id="timeline" ref={containerRef} style={{ backgroundColor: BG, padding: "80px 0", overflow: "hidden" }}>
-      <div style={{ maxWidth: 920, margin: "0 auto", padding: "0 24px" }}>
+    <section id="timeline" ref={containerRef} style={{ backgroundColor: BG, padding: "100px 0", overflow: "hidden" }}>
+      <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: 36 }}>
+        <div style={{ textAlign: "center", marginBottom: 48 }}>
           <h2
             style={{
-              fontSize: "clamp(28px, 3.4vw, 32px)",
+              fontSize: "clamp(32px, 4vw, 40px)",
               fontWeight: 400,
               letterSpacing: "0.3em",
               color: WHITE,
@@ -287,10 +287,10 @@ export default function TimelineSection() {
           <div
             style={{
               height: 3,
-              width: 140,
+              width: 160,
               borderRadius: 99,
               backgroundColor: ORANGE,
-              margin: "8px auto 0",
+              margin: "10px auto 0",
               boxShadow: `0 0 16px ${ORANGE}cc`,
             }}
           />
@@ -320,14 +320,14 @@ export default function TimelineSection() {
                 strokeLinecap="round"
                 style={{ pathLength: lineProgress }}
               />
-              <circle cx={svg.cx} cy={svg.startY} r="9" fill="#fff" />
-              <circle cx={svg.cx} cy={svg.endY} r="9" fill="#fff" />
+              <circle cx={svg.cx} cy={svg.startY} r="10" fill="#fff" />
+              <circle cx={svg.cx} cy={svg.endY} r="10" fill="#fff" />
               {svg.nodes.map((pos, i) => (
                 <circle
                   key={i}
                   cx={pos.x}
                   cy={pos.y}
-                  r="8"
+                  r="9"
                   fill="#fff"
                   stroke="rgba(255,255,255,0.2)"
                   strokeWidth="2"
@@ -337,11 +337,11 @@ export default function TimelineSection() {
           )}
 
           {isMobile ? (
-            <div style={{ position: "relative", paddingLeft: 22, paddingTop: 8 }}>
+            <div style={{ position: "relative", paddingLeft: 26, paddingTop: 10 }}>
               <div
                 style={{
                   position: "absolute",
-                  left: 10,
+                  left: 11,
                   top: 0,
                   bottom: 0,
                   width: 2,
@@ -349,7 +349,7 @@ export default function TimelineSection() {
                   borderRadius: 99,
                 }}
               />
-              <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 26 }}>
                 {steps.map((s, idx) => (
                   <motion.div
                     key={s.step}
@@ -359,17 +359,17 @@ export default function TimelineSection() {
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
                     style={{
                       display: "grid",
-                      gridTemplateColumns: "20px minmax(0, 1fr)",
-                      gap: 12,
+                      gridTemplateColumns: "24px minmax(0, 1fr)",
+                      gap: 14,
                       alignItems: "start",
                     }}
                   >
                     <div
                       style={{
                         position: "relative",
-                        width: 20,
-                        height: 20,
-                        marginTop: 16,
+                        width: 24,
+                        height: 24,
+                        marginTop: 18,
                       }}
                     >
                       <div
@@ -377,8 +377,8 @@ export default function TimelineSection() {
                           position: "absolute",
                           left: 2,
                           top: 2,
-                          width: 16,
-                          height: 16,
+                          width: 20,
+                          height: 20,
                           borderRadius: "50%",
                           background: WHITE,
                           border: "2px solid rgba(255,255,255,0.18)",
@@ -386,7 +386,7 @@ export default function TimelineSection() {
                       />
                     </div>
                     <div style={{ minWidth: 0 }}>
-                      <div style={{ marginBottom: 8 }}>
+                      <div style={{ marginBottom: 10 }}>
                         <StepLabel step={s.step} align="left" />
                       </div>
                       <Card
@@ -403,12 +403,12 @@ export default function TimelineSection() {
             </div>
           ) : (
             <>
-              <div style={{ height: 44 }} />
-              <div style={{ display: "flex", flexDirection: "column", gap: "clamp(12px, 1.6vw, 18px)" }}>
+              <div style={{ height: 56 }} />
+              <div style={{ display: "flex", flexDirection: "column", gap: "clamp(20px, 2.4vw, 30px)" }}>
                 {steps.map((s, idx) => {
                   const cardOnLeft = idx % 2 === 0;
-                  const rowGap = 12;
-                  const stepGap = cardOnLeft ? 36 : 40;
+                  const rowGap = 16;
+                  const stepGap = cardOnLeft ? 44 : 48;
                   const NodeMarker = (
                     <div
                       ref={(el) => {
@@ -416,7 +416,7 @@ export default function TimelineSection() {
                       }}
                       style={{
                         width: 1,
-                        height: 40,
+                        height: 56,
                         flexShrink: 0,
                         display: "flex",
                         alignItems: "center",
@@ -433,9 +433,9 @@ export default function TimelineSection() {
                       transition={{ duration: 0.6, delay: idx * 0.15 }}
                       style={{
                         display: "grid",
-                        gridTemplateColumns: "minmax(0, 1fr) 64px minmax(0, 1fr)",
+                        gridTemplateColumns: "minmax(0, 1fr) 80px minmax(0, 1fr)",
                         alignItems: "center",
-                        padding: "6px 0",
+                        padding: "10px 0",
                         position: "relative",
                         zIndex: 2,
                       }}
@@ -465,7 +465,7 @@ export default function TimelineSection() {
                   );
                 })}
               </div>
-              <div style={{ height: 44 }} />
+              <div style={{ height: 56 }} />
             </>
           )}
         </div>

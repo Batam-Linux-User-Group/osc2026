@@ -12,27 +12,30 @@ const competitions = [
     description:
       "Tantang kreativitasmu dalam mendesain maskot ikonik yang merepresentasikan semangat Open Source Competition 2026.",
     icon: Brush,
+    panduanUrl: "https://drive.google.com/file/d/XXXXXXXXXXXXX/view",
   },
   {
     title: "Linux System Admin",
     description:
       "Uji kemampuan teknismu dalam mengelola, mengkonfigurasi, dan memecahkan masalah pada sistem operasi berbasis Linux.",
     icon: ShieldCheck,
+    panduanUrl: "https://drive.google.com/file/d/YYYYYYYYYYYYY/view",
   },
   {
     title: "Network Simulation",
     description:
       "Tunjukkan keahlianmu dalam merancang, mensimulasikan, dan menganalisis arsitektur jaringan komputer modern.",
     icon: Network,
+    panduanUrl: "https://drive.google.com/file/d/ZZZZZZZZZZZZZ/view",
   },
   {
     title: "Website Design",
     description:
       "Buat karya desain antarmuka website yang tidak hanya indah secara visual, tetapi juga responsif dan ramah pengguna.",
     icon: MonitorSmartphone,
+    panduanUrl: "https://drive.google.com/file/d/WWWWWWWWWWWWW/view",
   },
 ];
-
 export default function CompetitionSection() {
   return (
     <section className="relative overflow-hidden bg-[#191a1f] py-16 px-6">
@@ -43,7 +46,7 @@ export default function CompetitionSection() {
       <img
         src={mascot}
         alt="Mascot"
-        className="absolute bottom-0 left-0 hidden w-56 lg:block"
+        className="absolute button-0px left-0 hidden w-100 lg:block"
       />
 
       <div className="mx-auto max-w-6xl">
@@ -53,11 +56,14 @@ export default function CompetitionSection() {
             <h2 className="text-3xl font-bold uppercase tracking-widest text-white">
               Daftar Lomba
             </h2>
-
             <div className="absolute left-1/2 mt-2 h-[3px] w-40 -translate-x-1/2 rounded-full bg-[#e86d2f]" />
           </div>
         </div>
-
+        <div className="mb-10 flex justify-center">
+          <p className="max-w-xl text-center text-sm text-gray-300">
+            Pilih lomba yang sesuai dengan minat dan keahlianmu, dan tunjukkan bakat terbaikmu di Open Source Competition 2026!
+          </p>
+        </div>
         {/* Cards */}
         <div className="grid gap-7 md:grid-cols-2">
           {competitions.map((item, index) => {
@@ -115,6 +121,16 @@ export default function CompetitionSection() {
                     <p className="text-sm leading-6 text-gray-400">
                       {item.description}
                     </p>
+
+                    {/* link panduan lomba */}
+                    <a
+                                           href={item.panduanUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-block text-sm font-semibold text-[#ef7d39] hover:underline"
+                    >
+                      Lihat Panduan
+                    </a>
                   </div>
                 </div>
               </div>

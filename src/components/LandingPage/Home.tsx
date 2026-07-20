@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Maskot } from '../../assets';
@@ -7,6 +8,41 @@ import decorTopLeft from '../../assets/LandingPage/decor-topleft.png';
 import backgroundBuilding from '../../assets/LandingPage/background-building.png';
 
 const Home = () => {
+  const TARGET_DATE = new Date('2026-08-19T00:00:00');
+
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+  const [isExpired, setIsExpired] = useState(false);
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const difference = TARGET_DATE.getTime() - new Date().getTime();
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / (1000 * 60)) % 60),
+          seconds: Math.floor((difference / 1000) % 60),
+        });
+        setIsExpired(false);
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        setIsExpired(true);
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const pad = (num: number) => String(num).padStart(2, '0');
+
   return (
     <section
       id="beranda"
@@ -37,6 +73,7 @@ const Home = () => {
               </span>
             </h1>
 
+
             <p className="mt-3 max-w-lg pl-4 text-xs leading-relaxed text-slate-300 sm:mt-4 sm:pl-6 sm:text-sm lg:text-base">
               <strong className="font-semibold text-white">
                 Wujudkan Potensimu Lewat Open Source!
@@ -45,27 +82,55 @@ const Home = () => {
               Mulai dari sekarang untuk menghadapi tantangan dunia modern.
             </p>
 
+            <div className="mt-5 flex gap-4 pl-4 sm:mt-7 sm:gap-6 sm:pl-6 lg:gap-8">
+              {[
+                { value: timeLeft.days, label: 'DAYS' },
+                { value: timeLeft.hours, label: 'HOURS' },
+                { value: timeLeft.minutes, label: 'MINUTES' },
+                { value: timeLeft.seconds, label: 'SECONDS' },
+              ].map((item) => (
+                <div key={item.label} className="flex flex-col items-center">
+                  <span className="text-2xl font-bold text-slate-200 sm:text-3xl lg:text-4xl">
+                    {pad(item.value)}
+                  </span>
+                  <span className="mt-1 text-[10px] tracking-wider text-slate-400 sm:text-xs">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+
             <div className="mt-5 pl-4 sm:mt-7 sm:pl-6">
-              <Link
-                to="/daftar"
-                className="inline-block bg-orange-primary px-6 py-2.5 text-sm font-bold text-neutral-black shadow-lg  outline-offset-1 outline-orange-primary transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-orange-primary/40"
-                style={{ borderRadius: '38px 12px 38px 12px' }}
-                aria-label="Daftar Open Source Competition"
-              >
-                Daftar Sekarang!
-              </Link>
+              {isExpired ? (
+                <span
+                  className="inline-block cursor-not-allowed bg-neutral-700 px-6 py-2.5 text-sm font-bold text-slate-400 shadow-lg opacity-70"
+                  style={{ borderRadius: '38px 12px 38px 12px' }}
+                  aria-disabled="true"
+                >
+                  Pendaftaran Ditutup
+                </span>
+              ) : (
+                <Link
+                  to="/daftar"
+                  className="inline-block bg-orange-primary px-6 py-2.5 text-sm font-bold text-neutral-black shadow-lg outline-offset-1 outline-orange-primary transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-orange-primary/40"
+                  style={{ borderRadius: '38px 12px 38px 12px' }}
+                  aria-label="Daftar Open Source Competition"
+                >
+                  Daftar Sekarang!
+                </Link>
+              )}
             </div>
           </div>
         </motion.div>
 
         {/* ---------- Right illustration ---------- */}
-        <motion.div
+       <motion.div
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
           className="flex w-full order-1 lg:order-2 justify-center pb-10 pt-4 lg:pl-10 lg:w-1/2 lg:justify-end"
         >
-          <div className="relative w-[80%] max-w-sm sm:w-[72%]">
+          <div className="group relative w-[80%] max-w-sm sm:w-[72%]">
             <div className="absolute bottom-10 right-full z-20 mr-36 hidden h-20 w-48 overflow-hidden shadow-md sm:block" style={{ borderRadius: '0 24px 0 24px' }}>
               <img
                 src={dotPanelBg}
@@ -92,7 +157,7 @@ const Home = () => {
               src={Maskot}
               alt="Maskot OSC"
               loading="lazy"
-              className="pointer-events-none absolute -bottom-2 -left-10 z-20 w-[85%] drop-shadow-[0_20px_25px_rgba(0,0,0,0.5)] sm:-left-30 sm:w-[100%] lg:-left-38 lg:w-[110%]"
+              className="pointer-events-auto absolute -bottom-2 -left-10 z-20 w-[85%] cursor-pointer drop-shadow-[0_20px_25px_rgba(0,0,0,0.5)] transition-all duration-500 ease-out hover:scale-105 hover:drop-shadow-[0_0_35px_rgba(232,109,47,0.7)] sm:-left-30 sm:w-[100%] lg:-left-38 lg:w-[110%]"
             />
           </div>
         </motion.div>
