@@ -35,11 +35,6 @@ export default function FormField({
       {description && (
         <div className="text-gray-400 text-sm mb-3 space-y-3 leading-relaxed">
           <p>{description}</p>
-          <div className="space-y-0.5">
-            <p>Perlomba dikenakan biaya sebesar Rp. 00.0000</p>
-            <p>Pembayaran dapat dilakukan melalui:</p>
-            <p>08992582006 a.s ADHYCA HAFEEZ WIBOWO (Dana)</p>
-          </div>
         </div>
       )}
       <input

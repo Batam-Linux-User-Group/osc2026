@@ -12,28 +12,28 @@ const competitions = [
     description:
       "Tantang kreativitasmu dalam mendesain maskot ikonik yang merepresentasikan semangat Open Source Competition 2026.",
     icon: Brush,
-    panduanUrl: "https://drive.google.com/file/d/XXXXXXXXXXXXX/view",
+    panduanUrl: "https://polibatam.id/GuideBookMascotDesignOSC2026",
   },
   {
     title: "Linux System Admin",
     description:
       "Uji kemampuan teknismu dalam mengelola, mengkonfigurasi, dan memecahkan masalah pada sistem operasi berbasis Linux.",
     icon: ShieldCheck,
-    panduanUrl: "https://drive.google.com/file/d/YYYYYYYYYYYYY/view",
+    panduanUrl: "https://polibatam.id/GuideBookSysAdminOSC2026",
   },
   {
     title: "Network Simulation",
     description:
       "Tunjukkan keahlianmu dalam merancang, mensimulasikan, dan menganalisis arsitektur jaringan komputer modern.",
     icon: Network,
-    panduanUrl: "https://drive.google.com/file/d/ZZZZZZZZZZZZZ/view",
+    panduanUrl: "https://polibatam.id/GuideBookNetSimOSC2026",
   },
   {
-    title: "Website Design",
+    title: "Web Design",
     description:
-      "Buat karya desain antarmuka website yang tidak hanya indah secara visual, tetapi juga responsif dan ramah pengguna.",
+      "Buat karya desain antarmuka web yang tidak hanya indah secara visual, tetapi juga responsif dan ramah pengguna.",
     icon: MonitorSmartphone,
-    panduanUrl: "https://drive.google.com/file/d/WWWWWWWWWWWWW/view",
+    panduanUrl: "https://polibatam.id/GuideBookWebDesignOSC2026",
   },
 ];
 export default function CompetitionSection() {

@@ -8,7 +8,7 @@ import {
   User,
 } from "lucide-react";
 import type React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FormField from "../components/Register/FormField";
 import FormHeader from "../components/Register/FormHeader";
@@ -33,6 +33,17 @@ const FormRegister: React.FC = () => {
   const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [errors, setErrors] = useState<FormErrors>({});
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  // Fix: submit error is now tracked so the user gets feedback, not just console.error
+  const [submitError, setSubmitError] = useState<string>("");
+
+  // Fix: make sure body scroll is always restored when component unmounts,
+  // even if the modal was open at the time (previously overflow could stay "hidden")
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, []);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
@@ -44,7 +55,7 @@ const FormRegister: React.FC = () => {
     }));
 
     // Clear error when user starts typing
-    if (errors[name]) {
+    if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({
         ...prev,
         [name]: "",
@@ -52,10 +63,17 @@ const FormRegister: React.FC = () => {
     }
   };
 
+  const selectedCompetition = competitions.find(
+    (comp) => comp.id === formData.lomba,
+  );
+
   const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>,
   ): Promise<void> => {
     e.preventDefault();
+
+    // Fix: guard against duplicate submits (e.g. rapid Enter presses)
+    if (isSubmitting) return;
 
     const newErrors = validateForm(formData);
     if (Object.keys(newErrors).length > 0) {
@@ -64,8 +82,9 @@ const FormRegister: React.FC = () => {
     }
 
     setIsSubmitting(true);
+    setSubmitError("");
 
-    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
     try {
       await axios.post(`${API_URL}/api/register`, {
@@ -83,6 +102,14 @@ const FormRegister: React.FC = () => {
       document.body.style.overflow = "hidden";
     } catch (error) {
       console.error("Submission error:", error);
+      // Fix: surface a readable message to the user instead of failing silently
+      if (axios.isAxiosError(error) && error.response?.data?.message) {
+        setSubmitError(error.response.data.message);
+      } else {
+        setSubmitError(
+          "Gagal mengirim pendaftaran. Silakan periksa koneksi Anda dan coba lagi.",
+        );
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -106,18 +133,24 @@ const FormRegister: React.FC = () => {
 
   const copyToClipboard = async (text: string): Promise<void> => {
     try {
-      await navigator.clipboard.writeText(text);
-      // You could add a toast notification here
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        // Fix: fallback for browsers/contexts without navigator.clipboard (e.g. non-HTTPS)
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+      }
     } catch (error) {
       console.error("Failed to copy to clipboard:", error);
     }
   };
-
-  const selectedCompetition = competitions.find(
-    (comp) => comp.id === formData.lomba,
-  );
-
-  const [openModal, setOpenModal] = useState(false);
 
   return (
     <div className="bg-[#0F0E0E] min-h-screen flex items-center justify-center p-4 py-10 relative overflow-hidden">
@@ -126,12 +159,38 @@ const FormRegister: React.FC = () => {
         <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-orange-primary/5 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-orange-dark/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
-      <div
-        onClick={() => setOpenModal(true)}
-        className="fixed bottom-10 right-5 z-30 bg-orange-primary text-neutral-white rounded-full p-3 shadow-lg hover:bg-orange-dark transition-colors cursor-pointer"
-      >
-        <Info size={20} />
+
+      <div className="fixed bottom-10 right-5 z-30 flex flex-col items-end gap-3">
+        {/* Alert bubble di atas */}
+        <div className="relative bg-neutral-black border border-orange-primary/30 rounded-2xl shadow-2xl p-3 w-64 animate-bounce">
+          <div className="flex items-center gap-3">
+            <div className="flex-1">
+              <p className="text-xs text-orange-primary font-semibold">PIC Lomba</p>
+              <p className="text-xs text-zinc-400">Siap membantu pendaftaran Anda</p>
+            </div>
+          </div>
+          {/* Segitiga bubble */}
+          <div className="absolute -bottom-2 right-5 w-4 h-4 bg-neutral-black border-r border-b border-orange-primary/30 rotate-45"></div>
+        </div>
+
+        {/* Tombol bulat — fix: dibuat aksesibel (keyboard + screen reader) */}
+        <div
+          onClick={() => setOpenModal(true)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setOpenModal(true);
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label="Buka informasi bantuan pendaftaran"
+          className="bg-orange-primary text-neutral-white rounded-full p-3 shadow-lg hover:bg-orange-dark transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-primary focus:ring-offset-2 focus:ring-offset-[#0F0E0E]"
+        >
+          <Info size={20} />
+        </div>
       </div>
+
       {/* Main Form Container */}
       <div className="relative w-full max-w-md z-10">
         <div className="flex justify-start mb-4">
@@ -142,6 +201,7 @@ const FormRegister: React.FC = () => {
             <span className="text-[10px] leading-none">◀</span> Back
           </Link>
         </div>
+
         <FormHeader />
 
         {/* Form */}
@@ -149,8 +209,19 @@ const FormRegister: React.FC = () => {
           onSubmit={handleSubmit}
           className="bg-neutral-black rounded-2xl p-8 border border-orange-primary/15 shadow-2xl"
           id="formRegister"
+          noValidate
         >
           <div className="space-y-6">
+            {/* Fix: submit-level error is now shown to the user */}
+            {submitError && (
+              <div
+                role="alert"
+                className="bg-red-500/10 border border-red-500/40 text-red-400 text-sm rounded-lg p-3"
+              >
+                {submitError}
+              </div>
+            )}
+
             <FormField
               label="Nama Lengkap"
               name="nama"
@@ -190,7 +261,7 @@ const FormRegister: React.FC = () => {
               placeholder="Lampirkan link Google Drive"
               error={errors.kartupelajar}
               icon={FileIcon}
-              description="Mohon Lampirkan link Google Drive untuk diisi berkas dengan berupa Kartu pelajar/Identitas, Foto formal terbaru, dan bukti pembayaran biaya pendaftaran. Pastikan link Google Drive telah diatur dapat diakses panitia/admin (publik)."
+              description="Mohon Lampirkan link Google Drive untuk diisi berkas dengan berupa Kartu pelajar/Identitas, Foto formal terbaru. Pastikan link Google Drive telah diatur dapat diakses panitia/admin (publik)."
             />
 
             <FormField

@@ -1,6 +1,6 @@
 import { useRef, useLayoutEffect, useState, useCallback, useEffect } from "react";
 import { FileText, Users, Calendar, Award, Gift } from "lucide-react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const ORANGE = "var(--color-orange-primary)";
 const BG = "var(--color-neutral-black)";

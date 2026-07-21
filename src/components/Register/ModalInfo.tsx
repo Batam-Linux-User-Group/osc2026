@@ -12,27 +12,39 @@ const ModalInfo: React.FC<ModalInfoProps> = ({ isOpen, onClose }) => {
 
   const KontakLomba: Kontak[] = [
     {
-      nomor: "085763542044",
-      whatsapp: "6285763542044",
-      nama: "Mifta",
-      lomba: "Mascot Design",
-    },
-    {
-      nomor: "081362363862",
-      whatsapp: "6281362363862",
-      nama: "Tomi",
+      nomor: "+6281378280892",
+      whatsapp: "+6281378280892",
+      nama: "Fawwaz",
       lomba: "Web Design",
     },
     {
-      nomor: "08127003162",
-      whatsapp: "628127003162",
-      nama: "Syahdan",
+      nomor: " +6281802607879",
+      whatsapp: " +6281802607879",
+      nama: "Devika",
+      lomba: "Web Design",
+    },
+    {
+      nomor: ":+62895370748811",
+      whatsapp: "+62895370748811",
+      nama: "Fajri",
+      lomba: "Network Simulation",
+    },
+     {
+      nomor: ":+6282363673590",
+      whatsapp: "+6282363673590",
+      nama: "Afif",
       lomba: "Network Simulation",
     },
     {
-      nomor: "0895370677717",
-      whatsapp: "628127003162",
-      nama: "Numa",
+      nomor: "+6282169025018",
+      whatsapp: "+6282169025018",
+      nama: "Maulana",
+      lomba: "Linux System Administrator",
+    },
+       {
+      nomor: "+6282384837291",
+      whatsapp: "+6282384837291",
+      nama: "Nabila",
       lomba: "Linux System Administrator",
     },
   ];

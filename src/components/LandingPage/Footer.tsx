@@ -26,9 +26,9 @@ const Footer = () => {
             Batam Linux User Group
           </p>
           <p className="text-sm text-gray-300 text-center md:text-left">
-            Jl Ahmad Yani Politeknik Negeri Batam, Batam, 
+            Jl. Ahmad Yani, Tlk. Tering, Kec. Batam Kota, Kota Batam,
             <br />
-            Riau, Indonesia 29431
+            Kepulauan Riau 29461, Indonesia
           </p>
         </div>
 

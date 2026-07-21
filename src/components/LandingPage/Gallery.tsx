@@ -1,5 +1,5 @@
 import {
-  galleryOsc2024,
+  satu,
   galleryOsc2025,
   logoOsc2024,
   logoOsc2025,
@@ -9,7 +9,7 @@ import {
 const galleryData = [
   {
     id: '2024',
-    src: galleryOsc2024,
+    src: satu,
     alt: 'OSC 2024',
     year: '2024',
     isComingSoon: false,
