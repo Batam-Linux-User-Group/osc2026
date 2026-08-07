@@ -10,10 +10,10 @@ const MOBILE_BREAKPOINT = 768;
 
 const steps = [
   { step: "01", title: "PENDAFTARAN", date: "21 Juli 2026", Icon: FileText },
-  { step: "02", title: "TECHNICAL MEETING", date: "12 Agustus 2026", Icon: Users },
+  { step: "02", title: "TECHNICAL MEETING", date: "16 Agustus 2026", Icon: Users },
   { step: "03", title: "PELAKSANAAN LOMBA", date: "19 Agustus 2026", Icon: Calendar },
-  { step: "04", title: "PENGUMUMAN JUARA", date: "20 Agustus 2026", Icon: Award },
-  { step: "05", title: "PENYERAHAN HADIAH", date: "21 Agustus 2026", Icon: Gift },
+  { step: "04", title: "PENGUMUMAN JUARA", date: "28 Agustus 2026", Icon: Award },
+  { step: "05", title: "PENYERAHAN HADIAH", date: "2 Agustus 2026", Icon: Gift },
 ];
 
 /* ── Pill card with icon badge & connector bridge ── */
