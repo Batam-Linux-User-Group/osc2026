@@ -86,7 +86,7 @@ const AdminPage = () => {
   // Fetch data
   const fetchLomba = useCallback(async () => {
     try {
-      const res = await axios.get(`${API_URL}/api/lomba`);
+      const res = await axios.get(`${API_URL}/lomba`);
       setLombaList(res.data);
     } catch (err) {
       handleAuthError(err);
@@ -95,7 +95,7 @@ const AdminPage = () => {
 
   const fetchPeserta = useCallback(async () => {
     try {
-      const res = await axios.get(`${API_URL}/api/peserta`, getHeaders());
+      const res = await axios.get(`${API_URL}/peserta`, getHeaders());
       setPesertaList(res.data);
     } catch (err) {
       handleAuthError(err);
@@ -141,13 +141,13 @@ const AdminPage = () => {
     try {
       if (editingLomba) {
         await axios.put(
-          `${API_URL}/api/lomba/${editingLomba.id}`,
+          `${API_URL}/lomba/${editingLomba.id}`,
           { kategori_lomba: lombaInput },
           getHeaders()
         );
       } else {
         await axios.post(
-          `${API_URL}/api/lomba`,
+          `${API_URL}/lomba`,
           { kategori_lomba: lombaInput },
           getHeaders()
         );
@@ -170,7 +170,7 @@ const AdminPage = () => {
   const deleteLomba = async (id: number) => {
     setLoading(true);
     try {
-      await axios.delete(`${API_URL}/api/lomba/${id}`, getHeaders());
+      await axios.delete(`${API_URL}/lomba/${id}`, getHeaders());
       setDeleteConfirm(null);
       await fetchLomba();
       await fetchPeserta();
@@ -223,12 +223,12 @@ const AdminPage = () => {
 
       if (editingPeserta) {
         await axios.put(
-          `${API_URL}/api/peserta/${editingPeserta.id}`,
+          `${API_URL}/peserta/${editingPeserta.id}`,
           payload,
           getHeaders()
         );
       } else {
-        await axios.post(`${API_URL}/api/peserta`, payload, getHeaders());
+        await axios.post(`${API_URL}/peserta`, payload, getHeaders());
       }
       setShowPesertaForm(false);
       setEditingPeserta(null);
@@ -246,7 +246,7 @@ const AdminPage = () => {
   const deletePeserta = async (id: number) => {
     setLoading(true);
     try {
-      await axios.delete(`${API_URL}/api/peserta/${id}`, getHeaders());
+      await axios.delete(`${API_URL}/peserta/${id}`, getHeaders());
       setDeleteConfirm(null);
       await fetchPeserta();
     } catch (err) {

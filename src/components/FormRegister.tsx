@@ -84,10 +84,10 @@ const FormRegister: React.FC = () => {
     setIsSubmitting(true);
     setSubmitError("");
 
-    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    const API_URL = import.meta.env.VITE_API_URL || "/osc2026/api";
 
     try {
-      await axios.post(`${API_URL}/api/register`, {
+      await axios.post(`${API_URL}/register`, {
         nama: formData.nama.trim(),
         email: formData.email.trim(),
         sekolah: formData.sekolah.trim(),
