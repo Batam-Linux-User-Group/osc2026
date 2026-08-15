@@ -47,7 +47,7 @@ const ModalInfo: React.FC<ModalInfoProps> = ({ isOpen, onClose }) => {
     nama: "Nabila",
     lomba: "Linux System Administrator",
   },
-{
+  {
     nomor: "+628992582006",
     whatsapp: "628992582006",
     nama: "Adhyca",

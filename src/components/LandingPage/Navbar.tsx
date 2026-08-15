@@ -15,6 +15,8 @@ const Navbar = () => {
 const [mobileGuideOpen, setMobileGuideOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
+  const [mobileGuideOpen, setMobileGuideOpen] = useState(false);
+  
   const toggleMenu = () => {
     setMobileMenuOpen((prev) => !prev);
   };
@@ -262,7 +264,7 @@ const [mobileGuideOpen, setMobileGuideOpen] = useState(false);
           Peringkat
         </Link>
 
-        <div className="rounded-lg border border-slate-700/40 bg-slate-900/40">
+       <div className="rounded-lg border border-slate-700/40 bg-slate-900/40">
   <button
     type="button"
     onClick={() => setMobileGuideOpen((prev) => !prev)}
