@@ -14,6 +14,8 @@ const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [hasScrolled, setHasScrolled] = useState(false);
 
+  const [mobileGuideOpen, setMobileGuideOpen] = useState(false);
+  
   const toggleMenu = () => {
     setMobileMenuOpen((prev) => !prev);
   };
@@ -136,7 +138,6 @@ const Navbar = () => {
             onMouseLeave={() => setGuideMenuOpen(false)}
           >
             <a
-              href="https://polibatam.id/panduan-lomba-osc-2026"
               className="relative group flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-semibold transition-all duration-300 hover:bg-slate-700/30 hover:text-[#E9672D]"
             >
               <span className="relative z-10">Panduan Lomba</span>
@@ -262,15 +263,65 @@ const Navbar = () => {
           Peringkat
         </Link>
 
-        <a
-          href="https://polibatam.id/panduan-lomba-osc-2026"
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={closeMenu}
-          className="relative block rounded-lg px-4 py-3 text-sm font-semibold transition-all duration-300 hover:bg-slate-700/30 hover:text-[#E9672D]"
-        >
-          Panduan Lomba
-        </a>
+       <div className="rounded-lg border border-slate-700/40 bg-slate-900/40">
+  <button
+    type="button"
+    onClick={() => setMobileGuideOpen((prev) => !prev)}
+    className="flex w-full items-center justify-between px-4 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-slate-700/30 hover:text-[#E9672D]"
+  >
+    <span>Panduan Lomba</span>
+    <ChevronDown
+      size={16}
+      className={`transition-transform duration-300 ${
+        mobileGuideOpen ? "rotate-180" : ""
+      }`}
+    />
+  </button>
+
+  <div
+    className={`overflow-hidden transition-all duration-300 ${
+      mobileGuideOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+    }`}
+  >
+    <div className="space-y-1 px-2 pb-3">
+      <a
+        href="https://polibatam.id/GuideBookWebDesignOSC2026"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block rounded-md px-3 py-2 text-sm text-slate-200 transition-colors hover:bg-slate-700/40 hover:text-[#E9672D]"
+      >
+        Web Design
+      </a>
+
+      <a
+        href="https://polibatam.id/GuideBookSysAdminOSC2026"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block rounded-md px-3 py-2 text-sm text-slate-200 transition-colors hover:bg-slate-700/40 hover:text-[#E9672D]"
+      >
+        Linux System Admin
+      </a>
+
+      <a
+        href="https://polibatam.id/GuideBookNetSimOSC2026"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block rounded-md px-3 py-2 text-sm text-slate-200 transition-colors hover:bg-slate-700/40 hover:text-[#E9672D]"
+      >
+        Network Simulation
+      </a>
+
+      <a
+        href="https://polibatam.id/GuideBookMascotDesignOSC2026"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block rounded-md px-3 py-2 text-sm text-slate-200 transition-colors hover:bg-slate-700/40 hover:text-[#E9672D]"
+      >
+        Mascot Design
+      </a>
+    </div>
+  </div>
+</div>
 
         <Link
           to="/daftar"
