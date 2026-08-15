@@ -41,7 +41,7 @@ export default function LeaderboardPage2() {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const res = await axios.get<ApiLeaderboard[]>(`${API_URL}/api/peserta/leaderboard`);
+        const res = await axios.get<ApiLeaderboard[]>(`${API_URL}/peserta/leaderboard`);
 
         const mapped: CompetitionData[] = res.data.map((lomba, index) => ({
           id: lomba.id.toString(),

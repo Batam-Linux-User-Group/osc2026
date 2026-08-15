@@ -156,3 +156,4 @@ const ModalInfo: React.FC<ModalInfoProps> = ({ isOpen, onClose }) => {
 };
 
 export default ModalInfo;
+

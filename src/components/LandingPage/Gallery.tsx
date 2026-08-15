@@ -32,7 +32,7 @@ const galleryData = [
     year: '2026',
     isComingSoon: true,
     logo: logoOsc2026,
-    ketupel: 'Afif Hamzah',
+    ketupel: 'Daffa Choir',
   },
 ];
 

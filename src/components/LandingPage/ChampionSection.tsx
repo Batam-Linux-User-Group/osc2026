@@ -23,7 +23,7 @@ const champions = [
   {
     id: 4,
     competition: 'Mascot Design',
-    winner: 'Septian Ramadhani',
+    winner: 'Nazwaqika Dyah Arega Ardi',
     school: 'SMKN 1 Batam',
   },
 ];

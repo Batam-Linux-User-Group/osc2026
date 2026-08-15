@@ -12,6 +12,7 @@ const Navbar = () => {
 
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+const [mobileGuideOpen, setMobileGuideOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
   const [mobileGuideOpen, setMobileGuideOpen] = useState(false);
@@ -161,17 +162,17 @@ const Navbar = () => {
                   <ul className="py-2">
                     <li>
                       <a
-                        href="https://polibatam.id/panduan-lomba-osc-2026"
+                        href="https://polibatam.id/GuideBookWebDesignOSC2026"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block px-5 py-3 text-base font-semibold text-white transition-colors duration-200 hover:bg-gray-100 hover:text-[#E9672D]"
                       >
                         Web Design
-                      </a>
+                     </a>
                     </li>
                     <li>
                       <a
-                        href="https://polibatam.id/panduan-lomba-osc-2026"
+                        href="https://polibatam.id/GuideBookSysAdminOSC2026"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block px-5 py-3 text-base font-semibold text-white transition-colors duration-200 hover:bg-gray-100 hover:text-[#E9672D]"
@@ -181,7 +182,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <a
-                        href="https://polibatam.id/panduan-lomba-osc-2026"
+                        href="https://polibatam.id/GuideBookNetSimOSC2026"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block px-5 py-3 text-base font-semibold text-white transition-colors duration-200 hover:bg-gray-100 hover:text-[#E9672D]"
@@ -191,7 +192,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <a
-                        href="https://polibatam.id/panduan-lomba-osc-2026"
+                        href="https://polibatam.id/GuideBookMascotDesignOSC2026"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block px-5 py-3 text-base font-semibold text-white transition-colors duration-200 hover:bg-gray-100 hover:text-[#E9672D]"
